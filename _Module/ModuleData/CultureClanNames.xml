@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Cultures>
+	<Culture id="empire">
+		<names>
+			<name name="Aaronios" />
+			<name name="Angelos" />
+			<name name="Apion" />
+			<name name="Apokaukos" />
+			<name name="Argyros" />
+			<name name="Arianites" />
+			<name name="Basilakes" />
+			<name name="Bryennios" />
+			<name name="Dalassenos" />
+			<name name="Diogenes" />
+			<name name="Doukas" />
+			<name name="Euphorbenos" />
+			<name name="Gabras" />
+			<name name="Glabas" />
+			<name name="Kaballarios" />
+			<name name="Kabasilas" />
+			<name name="Kalothetos" />
+			<name name="Kamateros" />
+			<name name="Katakalon" />
+			<name name="Keroularios" />
+			<name name="Komnenos" />
+			<name name="Kontostavlos" />
+			<name name="Kourtikios" />
+			<name name="Maleinos" />
+			<name name="Maliasenos" />
+			<name name="Melissenos" />
+			<name name="Monomachos" />
+			<name name="Parsakoutenos" />
+			<name name="Philanthropenos" />
+			<name name="Rogerios" />
+			<name name="Skleros" />
+			<name name="Sphrantzes" />
+			<name name="Synadenos" />
+			<name name="Tagaris" />
+			<name name="Tornikios" />
+			<name name="Tzamplakon" />
+			<name name="Vatatzes" />
+		</names>
+		<words>
+			<!--
+			<word1>
+				<word word="Example" />
+				<word word="Sample" />
+			</word1>
+			
+			<word2>
+				<word word="Created" />
+				<word word="Generated" />
+				<word word="Spawned" />
+			</word2>
+			<word3>
+				<word word="Clan" />
+				<word word="Faction" />
+				<word word="Family" />
+			</word3>
+			Example above can evaluate to any combination of word1 + word2 + word3, always in that order. IE Example Generated Family, Sample Created Faction, etc.
+			 You can use 1, 2, or 3 words as you please for each culture, but if word2 or word3 has one or more "word" nodes, there will always be at least that many words.
+			 If you would like to use more words, spaces are ok!
+			 Consider that words 1, 2 and 3 will be randomly chosen if there are more than one of an element.
+			 Thus, even a few combinations of names / words can go a long way and should help to prevent duplicates.
+			 -->
+		</words>
+	</Culture>
+	<Culture id="aserai">
+		<names>
+			<name name="Banu Abs" />
+			<name name="Banu al-Hakam" />
+			<name name="Banu al-Samayda" />
+			<name name="Banu Amr" />
+			<name name="Banu Asad" />
+			<name name="Banu Bakr" />
+			<name name="Banu Dhuhl" />
+			<name name="Banu Hanifa" />
+			<name name="Banu Hashim" />
+			<name name="Banu Hilal" />
+			<name name="Banu Ka'b" />
+			<name name="Banu Kanz" />
+			<name name="Banu Khuza'ah" />
+			<name name="Banu Lam" />
+			<name name="Banu Muzaina" />
+			<name name="Banu Numayr" />
+			<name name="Banu Shayban" />
+			<name name="Banu Sulaym" />
+			<name name="Banu Tamim" />
+			<name name="Banu Yashkur" />
+		</names>
+		<words>
+		</words>
+	</Culture>
+	<Culture id="sturgia">
+		<names>
+			<name name="Anjoving" />
+			<name name="Izyasloving" />
+			<name name="Olgoving" />
+			<name name="Sviatosloving" />
+			<name name="Piatoving" />
+			<name name="Rostisloving" />
+			<name name="Volodimeroving" />
+			<name name="Yuroving" />
+		</names>
+		<words>
+		</words>
+	</Culture>
+	<Culture id="vlandia">
+		<names>
+			<name name="dey Anver" />
+			<name name="dey Bigod" />
+			<name name="dey Clare" />
+			<name name="dey Colvin" />
+			<name name="dey Mare" />
+			<name name="dey Normand" />
+		</names>
+		<words>
+		</words>
+	</Culture>
+	<Culture id="battania">
+		<names>
+			<name name="fen Adair" />
+			<name name="fen Brocc" />
+			<name name="fen Broun" />
+			<name name="fen Caeman" />
+			<name name="fen Cernaich" />
+			<name name="fen Cormaic" />
+			<name name="fen Craith" />
+			<name name="fen Cruind" />
+			<name name="fen Culloch" />
+			<name name="fen Dalachain" />
+			<name name="fen Dorrthainn" />
+			<name name="fen Laeghis" />
+			<name name="fen Leask" />
+			<name name="fen Lyon" />
+			<name name="fen Mar" />
+			<name name="fen Meic" />
+			<name name="fen Muir" />
+			<name name="fen Niallain" />
+			<name name="fen Oaich" />
+			<name name="fen Riagain" />
+			<name name="fen Scellain" />
+			<name name="fen Tuirtre" />
+			<name name="fen Weir" />
+			<name name="fen Wemyss" />
+		</names>
+		<words>
+		</words>
+	</Culture>
+	<Culture id="khuzait">
+		<names>
+			<name name="Akgun" />
+			<name name="Akkoyun" />
+			<name name="Alukhai" />
+			<name name="Arseven" />
+			<name name="Ataseven" />
+			<name name="Aygun" />
+			<name name="Baarin" />
+			<name name="Birsen" />
+			<name name="Ceren" />
+			<name name="Cimen" />
+			<name name="Coskun" />
+			<name name="Dervis" />
+			<name name="Dursun" />
+			<name name="Duzgun" />
+			<name name="Ecevit" />
+			<name name="Ekren" />
+			<name name="Erden" />
+			<name name="Eren" />
+			<name name="Ertegun" />
+			<name name="Eris" />
+			<name name="Erkmen" />
+			<name name="Genc" />
+			<name name="Gokcen" />
+			<name name="Gulden" />
+			<name name="Guven" />
+			<name name="Jirgin" />
+			<name name="Khatagin" />
+			<name name="Memis" />
+			<name name="Kocyigit" />
+			<name name="Kozen" />
+			<name name="Olgun" />
+			<name name="Oymen" />
+			<name name="Ozbilen" />
+			<name name="Ozen" />
+			<name name="Selen" />
+			<name name="Sen" />
+			<name name="Sergen" />
+			<name name="Sezen" />
+			<name name="Sozen" />
+			<name name="Tarkhut" />
+			<name name="Tosun" />
+			<name name="Turgut" />
+			<name name="Tuzmen" />
+			<name name="Uygun" />
+			<name name="Yakut" />
+			<name name="Yigit" />
+		</names>
+		<words>
+		</words>
+	</Culture>
+</Cultures>
+
+<!--
+ Keep in mind as you create lists that they are read each time you create or load a save, if you have 'Custom Clan Names' setting enabled (disabled by default).
+ Thus you can add names mid-save, but be careful with names generated from words or reading the file and choosing names could begin taking a long time.
+ Some "lore-friendly" names have been added to each culture for your convenience. These are selected from the real-life equivalents of the native factions, some of which were modified to fit the theme of their culture.
+ -->

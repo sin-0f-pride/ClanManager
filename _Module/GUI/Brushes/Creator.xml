@@ -1,0 +1,13 @@
+<Brushes>
+  <Brush Name="Encyclopedia.SubPage.ChangeName" Font="Galahad" TextHorizontalAlignment="Center" TextVerticalAlignment="Center">
+    <Layers>
+      <BrushLayer Name="Default" Sprite="StdAssets\tabbar_long_namebox" />
+    </Layers>
+    <Styles>
+      <Style Name="Default" FontColor="#C6AC8DFF" ColorFactor="1.2" TextAlphaFactor="0.8" TextOutlineAmount="0.5" TextGlowRadius="0" TextBlur="0.1" TextShadowOffset="1" TextShadowAngle="60" FontSize="24" />
+      <Style Name="Hovered" TextAlphaFactor="1" ColorFactor="1.6" TextOutlineAmount="0.5" TextGlowRadius="0" TextBlur="0.1" TextShadowOffset="1" TextShadowAngle="60" TextColorFactor="1.4"/>
+      <Style Name="Pressed" TextAlphaFactor="0.7" ColorFactor="0.8" TextOutlineAmount="0.5" TextGlowRadius="0" TextBlur="0.1" TextShadowOffset="1" TextShadowAngle="60" TextColorFactor="0.8"/>
+      <Style Name="Disabled" TextAlphaFactor="0.1" ColorFactor="0.5" TextOutlineAmount="0.5" TextGlowRadius="0" TextBlur="0.1" TextShadowOffset="1" TextShadowAngle="60" TextColorFactor="1"/>
+    </Styles>
+  </Brush>
+</Brushes>
