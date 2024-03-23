@@ -2,6 +2,7 @@
 using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Base.Global;
 using MCM.Common;
+using TaleWorlds.CampaignSystem;
 
 namespace ClanManager
 {
@@ -36,8 +37,8 @@ namespace ClanManager
         private int _maximumHeroesSpawned = 10;
         private int _minimumLeaderHeroAge = 30;
         private int _maximumLeaderHeroAge = 50;
-        private int _minimumHeroAge = 18;
-        private int _maximumHeroAge = 70;
+        private int _minimumHeroAge = 30;
+        private int _maximumHeroAge = 50;
         private int _minimumPersonalityTraitLevel = -2;
         private int _maximumPersonalityTraitLevel = 2;
         //private int _minimumCharacterLevel = 1;
@@ -62,7 +63,7 @@ namespace ClanManager
 
 
 
-        [SettingPropertyBool("{=nfMFmDGwKf}Encyclopedia Tweaks (See Hint)", Order = 0, RequireRestart = false, HintText = "{=zTvbZ8Br}Enables a clan name change button and several formatting changes on clan pages in the encyclopedia. Recommended to toggle on and off as needed so you can choose the names of spawned clans yourself, particularly those in your kingdom. Default value is Disabled.")]
+        [SettingPropertyBool("{=nfMFmDGwKf}Encyclopedia Tweaks (See Hint)", Order = 0, RequireRestart = false, HintText = "{=zTvbZ8Br}Enables a clan name change button and removes the annoying shadow at the bottom of the clan page in the encyclopedia. Recommended to toggle on and off as needed so you can choose the names of spawned clans yourself, particularly those in your kingdom. Default value is Disabled.")]
         [SettingPropertyGroup("Other", GroupOrder = 0)]
         public bool EnableEncyclopediaTweaks
         {
@@ -77,7 +78,7 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyBool("{=nfMFmDGwKf}Spawn On Destruction", IsToggle = true, Order = 0, RequireRestart = false, HintText = "{=zTvbZ8Br}Enables spawning of clans on the destruction of another clan. Default is Enabled.")]
+        [SettingPropertyBool("{=nfMFmDGwKf}Spawn On Destruction", IsToggle = true, Order = 0, RequireRestart = false, HintText = "{=zTvbZ8Br}Enables spawning of clans after the destruction of another clan. Default is Enabled.")]
         [SettingPropertyGroup("Spawn On Destruction", GroupOrder = 1)]
         public bool EnableSpawnOnDestruction
         {
@@ -92,7 +93,7 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyBool("{=nfMFmDGwKf}Spawn Minor Clans", Order = 1, RequireRestart = false, HintText = "{=zTvbZ8Br}Enables spawning for Mercenary and Minor clans. Default is Disabled.")]
+        [SettingPropertyBool("{=nfMFmDGwKf}Spawn Minor Clans", Order = 1, RequireRestart = false, HintText = "{=zTvbZ8Br}Enables spawning for Minor clans after the destruction of another Minor clan. Default is Disabled.")]
         [SettingPropertyGroup("Spawn On Destruction", GroupOrder = 1)]
         public bool MinorClansOnDestruction
         {
@@ -107,7 +108,7 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyBool("{=nfMFmDGwKf}Preserve Clan Tier", Order = 2, RequireRestart = false, HintText = "{=zTvbZ8Br}Enables tier of the destroyed clan being the tier of the newly created clan(s). Default is Disabled.")]
+        [SettingPropertyBool("{=nfMFmDGwKf}Preserve Clan Tier", Order = 2, RequireRestart = false, HintText = "{=zTvbZ8Br}Sets the tier of the new clan(s) to the tier of the destroyed clan. Default is Disabled.")]
         [SettingPropertyGroup("Spawn On Destruction", GroupOrder = 1)]
         public bool PreserveClanTier
         {
@@ -122,7 +123,7 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyInteger("{=nfMFmDGwKf}Number Of Clans", 1, 10, Order = 3, RequireRestart = false, HintText = "{=zTvbZ8Br}Number of clans to spawn for each destroyed clan. Default is 1.")]
+        [SettingPropertyInteger("{=nfMFmDGwKf}Number Of Clans", 1, 10, Order = 3, RequireRestart = false, HintText = "{=zTvbZ8Br}The number of clans to spawn for each destroyed clan. Default is 1.")]
         [SettingPropertyGroup("Spawn On Destruction", GroupOrder = 1)]
         public int NumberOfClansOnDestruction
         {
@@ -137,8 +138,6 @@ namespace ClanManager
             }
         }
 
-        //TODO : Clan minimum and maximum
-        //If below the minimum, will spawn clans in quick succession to bring you above the minimum. If above the maximum, it will do nothing. 
         [SettingPropertyBool("{=nfMFmDGwKf}Spawn On Interval", IsToggle = true, Order = 10, RequireRestart = false, HintText = "{=zTvbZ8Br}Enables spawning of clans on an interval. Default is Disabled.")]
         [SettingPropertyGroup("Spawn On Interval", GroupOrder = 10)]
         public bool EnableSpawnOnInterval
@@ -154,7 +153,7 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyFloatingInteger("{=nfMFmDGwKf}Minor Clan Frequency", 0f, 1f, "#0%", Order = 11, RequireRestart = false, HintText = "{=zTvbZ8Br}Frequency multiplier of clans to be spawned as a mercenary or minor clan. Default is 0%.")]
+        [SettingPropertyFloatingInteger("{=nfMFmDGwKf}Minor Clan Frequency", 0f, 1f, "#0%", Order = 11, RequireRestart = false, HintText = "{=zTvbZ8Br}The frequency of clans to be spawned as a minor clan. Default is 0%.")]
         [SettingPropertyGroup("Spawn On Interval", GroupOrder = 10)]
         public float MinorClanFrequencyOnInterval
         {
@@ -169,7 +168,7 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyDropdown("{=nfMFmDGwKf}Spawn Interval Type", Order = 12, RequireRestart = false, HintText = "{=zTvbZ8Br}Periodical time type for spawning clans. Default is Daily.")]
+        [SettingPropertyDropdown("{=nfMFmDGwKf}Spawn Interval Type", Order = 12, RequireRestart = false, HintText = "{=zTvbZ8Br}The time interval type for spawning clans. Default is Daily.")]
         [SettingPropertyGroup("Spawn On Interval", GroupOrder = 10)]
         public Dropdown<string> SpawnIntervalType { get; } = new(new string[]
         {
@@ -178,7 +177,7 @@ namespace ClanManager
             "Weekly"
         }, 1);
 
-        [SettingPropertyInteger("{=nfMFmDGwKf}Spawn Interval Value", 1, 20, Order = 13, RequireRestart = false, HintText = "{=zTvbZ8Br}Periodical time interval for spawning clans. Default is 1.")]
+        [SettingPropertyInteger("{=nfMFmDGwKf}Spawn Interval Value", 1, 20, Order = 13, RequireRestart = false, HintText = "{=zTvbZ8Br}The time interval value for spawning clans. Default is 1.")]
         [SettingPropertyGroup("Spawn On Interval", GroupOrder = 10)]
         public int SpawnInterval
         {
@@ -193,7 +192,7 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyInteger("{=nfMFmDGwKf}Number Of Clans", 1, 20, Order = 14, RequireRestart = false, HintText = "Number of clans to spawn each interval. Default is 1.")]
+        [SettingPropertyInteger("{=nfMFmDGwKf}Number Of Clans", 1, 20, Order = 14, RequireRestart = false, HintText = "The number of clans to spawn each interval. Default is 1.")]
         [SettingPropertyGroup("Spawn On Interval", GroupOrder = 10)]
         public int NumberOfClansOnInterval
         {
@@ -208,7 +207,7 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyBool("{=nfMFmDGwKf}Preserve Cultures", HintText = "On destruction: Preserves the destroyed clan culture. On interval: Preserves the culture with the least clans. May pick a different culture on each iteration if 'Number Of Clans' is > 1. Default is Enabled.", Order = 20, RequireRestart = false)]
+        [SettingPropertyBool("{=nfMFmDGwKf}Preserve Cultures", HintText = "On destruction: Preserves the destroyed clan culture. On interval: Preserves the culture with the least clans. May pick a different culture on each iteration if 'Number Of Clans' is more than 1. Default is Enabled.", Order = 20, RequireRestart = false)]
         [SettingPropertyGroup("Clan Properties", GroupOrder = 20)]
         public bool PreserveCultures
         {
@@ -301,17 +300,17 @@ namespace ClanManager
             "All"
         }, 0);
 
-        [SettingPropertyDropdown("{=nfMFmDGwKf}Clan Strength", HintText = "The strength tendency of spawned clans. It will never exceed the selection. It will fail to meet the selection if all parties reach their troop limit. Keep in mind only 1 party is allowed until clan tier 2. Default is Start From Bottom.", Order = 27, RequireRestart = false)]
+        [SettingPropertyDropdown("{=nfMFmDGwKf}Fill Clan Parties", HintText = "The troop types to fill each clan party with. Note: None starts the clan from scratch, and could make their progression extremely difficult. Default is Basic troops only.", Order = 27, RequireRestart = false)]
         [SettingPropertyGroup("Clan Properties", GroupOrder = 20)]
-        public Dropdown<string> ClanStrength { get; } = new(new string[]
+        public Dropdown<string> FillClanParties { get; } = new(new string[]
         {
-            "Don't Fill Parties",
-            "Fill Parties (Basic troops only)",
-            "Fill Parties (Basic & Noble troops)",
-            "Fill Parties (Noble troops only)"
-        }, 0);
+            "None",
+            "Basic troops only",
+            "Basic & Noble troops",
+            "Noble troops only"
+        }, 1);
 
-        [SettingPropertyDropdown("{=nfMFmDGwKf}Declare Wars On Spawn", HintText = "Declare war on specified kingdom types when the clan is spawned. Clan(s) will have less of a chance of survival, but the option is there for chaos seekers. Default is None.", Order = 28, RequireRestart = false)]
+        [SettingPropertyDropdown("{=nfMFmDGwKf}Declare Wars On Spawn", HintText = "Declares war on specified kingdom types when the clan is spawned. Clan(s) will have less of a chance of survival, but the option is there for chaos seekers. Default is None.", Order = 28, RequireRestart = false)]
         [SettingPropertyGroup("Clan Properties", GroupOrder = 20)]
         public Dropdown<string> DeclareWarsOnSpawn { get; } = new(new string[]
         {
@@ -383,7 +382,7 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyInteger("{=nfMFmDGwKf}Minimum Hero Age", 0, 100, HintText = "The minimum age of heroes for spawned clans. Default is 18.", Order = 34, RequireRestart = false)]
+        [SettingPropertyInteger("{=nfMFmDGwKf}Minimum Hero Age", 0, 100, HintText = "The minimum age of heroes for spawned clans. Default is 30.", Order = 34, RequireRestart = false)]
         [SettingPropertyGroup("Hero Properties", GroupOrder = 30)]
         public int MinimumHeroAge
         {
@@ -398,7 +397,7 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyInteger("{=nfMFmDGwKf}Maximum Hero Age", 0, 100, HintText = "The minimum age of heroes for spawned clans. Default is 70.", Order = 35, RequireRestart = false)]
+        [SettingPropertyInteger("{=nfMFmDGwKf}Maximum Hero Age", 0, 100, HintText = "The minimum age of heroes for spawned clans. Default is 50.", Order = 35, RequireRestart = false)]
         [SettingPropertyGroup("Hero Properties", GroupOrder = 30)]
         public int MaximumHeroAge
         {

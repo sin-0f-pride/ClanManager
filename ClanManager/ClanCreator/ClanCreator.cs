@@ -131,7 +131,7 @@ namespace ClanManager.ClanCreator
                     break;
                 }
                 MobileParty party = LordPartyComponent.CreateLordParty("CC_" + MobileParty.All.Count, strongest, settlement.GatePosition, 150f, settlement, strongest);
-                int settingIndex = Settings.Current.ClanStrength.SelectedIndex;
+                int settingIndex = Settings.Current.FillClanParties.SelectedIndex;
                 if (settingIndex != 0)
                 {
                     party.AddElementToMemberRoster(settingIndex == 1 || (settingIndex == 2 && MBRandom.RandomInt(1) == 0) ? culture.BasicTroop : culture.EliteBasicTroop, party.LimitedPartySize - party.MemberRoster.Count);
