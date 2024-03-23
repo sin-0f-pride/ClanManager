@@ -63,7 +63,7 @@ namespace ClanManager.ClanCreator
             }
             XmlReaderSettings readerSettings = new XmlReaderSettings();
             readerSettings.IgnoreComments = true;
-            string path = ModuleHelper.GetModuleFullPath("Bannerlord.ClanManager") + "ModuleData/CultureClanNames.xml";
+            string path = ModuleHelper.GetModuleFullPath("ClanManager") + "ModuleData/CultureClanNames.xml";
             using (XmlReader reader = XmlReader.Create(path, readerSettings))
             {
                 XmlDocument document = new XmlDocument();
