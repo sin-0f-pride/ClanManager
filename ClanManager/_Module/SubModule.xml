@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Module>
     <Name value="Clan Manager"/>
-    <Id value="Bannerlord.ClanManager"/>
+    <Id value="ClanManager"/>
     <Version value="v1.0.0"/>
 	<Official value="false" />
     <SingleplayerModule value="true"/>
     <MultiplayerModule value="false"/>
     <DependedModules>
-        <DependedModule Id="Native"/> <!-- DependentVersion="v1.1.0"/> -->
-        <DependedModule Id="SandBoxCore" /> <!-- DependentVersion="v1.1.0"/> -->
-        <DependedModule Id="Sandbox" /> <!-- DependentVersion="v1.1.0"/> -->
-		<DependedModule Id="StoryMode" /> <!-- DependentVersion="v1.1.0"/> -->
+        <DependedModule Id="Native"/>
+        <DependedModule Id="SandBoxCore" />
+        <DependedModule Id="Sandbox" />
+		<DependedModule Id="StoryMode" />
     </DependedModules>
     <SubModules>
         <SubModule>
