@@ -305,13 +305,10 @@ namespace ClanManager
         [SettingPropertyGroup("Clan Properties", GroupOrder = 20)]
         public Dropdown<string> ClanStrength { get; } = new(new string[]
         {
-            "Start From Bottom",
-            "Low (<100)",
-            "Medium (<250)",
-            "High (<500)",
-            "Very High (<1000)",
-            "Extremely High (<2500)",
-            "Epic (<5000)",
+            "Don't Fill Parties",
+            "Fill Parties (Basic troops only)",
+            "Fill Parties (Basic & Noble troops)",
+            "Fill Parties (Noble troops only)"
         }, 0);
 
         [SettingPropertyDropdown("{=nfMFmDGwKf}Declare Wars On Spawn", HintText = "Declare war on specified kingdom types when the clan is spawned. Clan(s) will have less of a chance of survival, but the option is there for chaos seekers. Default is None.", Order = 28, RequireRestart = false)]

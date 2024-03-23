@@ -15,6 +15,10 @@ using TaleWorlds.LinQuick;
 using TaleWorlds.CampaignSystem.CharacterCreationContent;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
 using System;
+using System.Text.RegularExpressions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Party.PartyComponents;
+using TaleWorlds.CampaignSystem.GameComponents;
 
 namespace ClanManager.ClanCreator
 {
@@ -100,51 +104,39 @@ namespace ClanManager.ClanCreator
                 GiveGoldAction.ApplyBetweenCharacters(null, leader, (int)(Settings.Current.ExtraStartingGoldPerHero) * 1000, true);
             }
             //Decides whether troops should be added based on the setting, then creates a single party for the clan and populates it with culture troops until the clan strength is met or close to being met without going over.
-            /*bool shouldAddTroops = Int16.TryParse(Regex.Replace(Regex.Replace(Settings.Current.ClanStrength.SelectedValue, "[^. 0-9]", ""), "[^. 0-9]", ""), out short result);
-            if (shouldAddTroops)
+            Hero strongest = null;
+            int strongestSum = 0;
+            int parties = clan.CommanderLimit;
+            for (int p = 0; p < clan.CommanderLimit; p++)
             {
-                Hero strongest = null;
-                int strongestSum = 0;
-                int parties = clan.CommanderLimit;
-                for (int p = 0; p < clan.CommanderLimit; p++)
+                foreach (Hero h in clan.Heroes)
                 {
-                    foreach (Hero h in clan.Heroes)
+                    if (h.IsPartyLeader)
                     {
-                        if (h.IsPartyLeader)
-                        {
-                            continue;
-                        }
-                        int sum = 0;
-                        foreach (KeyValuePair<SkillObject, int> skill in GetAllSkillLevels(h))
-                        {
-                            sum += skill.Value;
-                        }
-                        if (sum > strongestSum)
-                        {
-                            strongest = h;
-                            strongestSum = sum;
-                        }
+                        continue;
                     }
-                    if (strongest == null)
+                    int sum = 0;
+                    foreach (KeyValuePair<SkillObject, int> skill in GetAllSkillLevels(h))
                     {
-                        break;
+                        sum += skill.Value;
                     }
-                    MobileParty party = LordPartyComponent.CreateLordParty("CC_" + MobileParty.All.Count, strongest, settlement.GatePosition, 150f, settlement, strongest);
-                    clan.GetType().GetMethod("UpdateStrength", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(clan, null);
-                    MBFastRandom r = new MBFastRandom();
-                    while (party.MemberRoster.Count < party.LimitedPartySize && clan.TotalStrength < result)
+                    if (sum > strongestSum)
                     {
-                        CharacterObject t = r.Next(1) == 0 ? culture.BasicTroop : culture.EliteBasicTroop;
-                        if (t.GetPower() + clan.TotalStrength > result)
-                        {
-                            break;
-                        }
-                        party.AddElementToMemberRoster(t, 1);
-                        clan.GetType().GetMethod("UpdateStrength", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(clan, null);
+                        strongest = h;
+                        strongestSum = sum;
                     }
                 }
-            }*/
-
+                if (strongest == null)
+                {
+                    break;
+                }
+                MobileParty party = LordPartyComponent.CreateLordParty("CC_" + MobileParty.All.Count, strongest, settlement.GatePosition, 150f, settlement, strongest);
+                int settingIndex = Settings.Current.ClanStrength.SelectedIndex;
+                if (settingIndex != 0)
+                {
+                    party.AddElementToMemberRoster(settingIndex == 1 || (settingIndex == 2 && MBRandom.RandomInt(1) == 0) ? culture.BasicTroop : culture.EliteBasicTroop, party.LimitedPartySize - party.MemberRoster.Count);
+                }
+            }
             //Don't preserve kingdom for mercenaries
             if (Settings.Current.PreserveKingdoms && !mercenary)
             {
@@ -178,9 +170,7 @@ namespace ClanManager.ClanCreator
                     }
                 }
             }
-            TextObject message = new TextObject("A rising new clan, {ClanName}, has been spotted near {SettlementName}.");
-            message.SetTextVariable("ClanName", clan.Name);
-            message.SetTextVariable("SettlementName", settlement.Name);
+            TextObject message = new TextObject("A rising new clan, {ClanName}, has been spotted near {SettlementName}.").SetTextVariable("ClanName", clan.Name).SetTextVariable("SettlementName", settlement.Name);
             InformationManager.DisplayMessage(new InformationMessage(message.ToString(), Color.White));
         }
 
@@ -206,16 +196,19 @@ namespace ClanManager.ClanCreator
                 hero.SetTraitLevel(DefaultTraits.Valor, MBRandom.RandomInt(minTraitLevel, maxTraitLevel));
                 hero.SetTraitLevel(DefaultTraits.Honor, MBRandom.RandomInt(minTraitLevel, maxTraitLevel));
                 hero.SetTraitLevel(DefaultTraits.Generosity, MBRandom.RandomInt(minTraitLevel, maxTraitLevel));
-                // hero.HeroDeveloper.DeriveSkillsFromTraits(true);
-                // TODO: Replace above removed native function with manual skill level initialization.
+                hero.HeroDeveloper.InitializeHeroDeveloper();
             }
             hero.SetNewOccupation(Occupation.Lord);
             MBEquipmentRoster roster = Campaign.Current.Models.EquipmentSelectionModel.GetEquipmentRostersForHeroComeOfAge(hero, false).GetRandomElementInefficiently();
             if (roster != null)
             {
-                Equipment equip = new Equipment(false);
-                equip.FillFrom(roster.GetBattleEquipments().GetRandomElementInefficiently(), false);
-                EquipmentHelper.AssignHeroEquipmentFromEquipment(hero, equip);
+                IEnumerable<Equipment> equipItems = roster.GetBattleEquipments();
+                if (equipItems != null && equipItems.Count() > 0)
+                {
+                    Equipment equip = new Equipment(false);
+                    equip.FillFrom(equipItems.GetRandomElementInefficiently(), false);
+                    EquipmentHelper.AssignHeroEquipmentFromEquipment(hero, equip);
+                }
             }
             NameGenerator.Current.GenerateHeroNameAndHeroFullName(hero, out TextObject firstName, out TextObject fullName, false);
             hero.SetName(fullName, firstName);
@@ -246,7 +239,7 @@ namespace ClanManager.ClanCreator
             }
             hero.EncyclopediaText = text;
             hero.UpdateHomeSettlement();
-            hero.ChangeState(Hero.CharacterStates.Active);
+            hero.ChangeState(Hero.CharacterStates.Active); 
             return hero;
         }
 
