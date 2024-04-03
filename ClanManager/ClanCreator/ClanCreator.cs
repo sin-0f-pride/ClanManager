@@ -64,7 +64,7 @@ namespace ClanManager.ClanCreator
             MBReadOnlyList<CharacterObject> templates = culture.LordTemplates;
             CharacterObject character = templates.GetRandomElementWithPredicate((CharacterObject x) => x.Occupation == Occupation.Lord);
             bool mercenary = false;
-            if ((oldClan != null && (oldClan.IsMinorFaction || oldClan.IsClanTypeMercenary) && Settings.Current.MinorClansOnDestruction) || (oldClan == null && MBRandom.RandomInt(1, 100) <= Settings.Current.MinorClanFrequencyOnInterval))
+            if ((oldClan != null && (oldClan.IsMinorFaction || oldClan.IsClanTypeMercenary) && Settings.Current.MinorClansOnDestruction) || (oldClan == null && MBRandom.RandomInt(1, 100) <= (int)(Settings.Current.MinorClanFrequencyOnInterval * 100)))
             {
                 clan.GetType().GetProperty("IsMinorFaction", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).SetValue(clan, true);
                 templates = culture.RebelliousHeroTemplates ?? templates;
