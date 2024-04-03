@@ -81,7 +81,11 @@ namespace ClanManager.ClanCreator
                             {
                                 foreach (XmlNode child in node.ChildNodes)
                                 {
-                                    _clanNameList.Add(new TextObject(child.Attributes["name"].Value));
+                                    TextObject name = new TextObject(child.Attributes["name"].Value);
+                                    if (!_clanNameList.Contains(name))
+                                    {
+                                        _clanNameList.Add(name);
+                                    }
                                 }
                             }
                             else if (node.Name == "words")
@@ -123,9 +127,13 @@ namespace ClanManager.ClanCreator
                                 if (wordsToNames.ElementAtOrDefault(0) != null)
                                 {
                                     List<TextObject> names = new List<TextObject>();
-                                    foreach (string name in wordsToNames)
+                                    foreach (string n in wordsToNames)
                                     {
-                                        _clanNameList.Add(new TextObject(name.Trim())); // Trimming is hacky, i should fix the selectmany logic.
+                                        TextObject name = new TextObject(n.Trim());
+                                        if (!_clanNameList.Contains(name))
+                                        {
+                                            _clanNameList.Add(name); // Trimming is hacky, i should fix the selectmany logic.
+                                        }
                                     }
                                 }
                             }
