@@ -149,11 +149,11 @@ namespace ClanManager.ClanCreator
                     {
                         InformationManager.ShowInquiry(
                             new InquiryData(
-                                new TextObject("A new clan emerged").ToString(),
-                                new TextObject("A rising new clan, {ClanName}, has been spotted nearby and would like to serve our kingdom. Do you accept them?").SetTextVariable("ClanName", clan.Name).ToString(),
+                                new TextObject("{=XnI75682}A new clan emerged.").ToString(),
+                                new TextObject("{=sFGXUicT}A rising new clan, {CLAN_NAME}, has been spotted nearby and would like to serve our kingdom. Do you accept them?").SetTextVariable("CLAN_NAME", clan.Name).ToString(),
                                 true, true,
-                                new TextObject("Accept").ToString(),
-                                new TextObject("Refuse").ToString(),
+                                new TextObject("{=ZdqbU2gw}Accept").ToString(),
+                                new TextObject("{=D9WJXQ9Z}Reject").ToString(),
                                 () =>
                                 {
                                     ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom);
@@ -170,7 +170,7 @@ namespace ClanManager.ClanCreator
                     }
                 }
             }
-            TextObject message = new TextObject("A rising new clan, {ClanName}, has been spotted near {SettlementName}.").SetTextVariable("ClanName", clan.Name).SetTextVariable("SettlementName", settlement.Name);
+            TextObject message = new TextObject("{=ShdkpllV}A rising new clan, {CLAN_NAME}, has been spotted near {SETTLEMENT_NAME}.").SetTextVariable("CLAN_NAME", clan.Name).SetTextVariable("SETTLEMENT_NAME", settlement.Name);
             InformationManager.DisplayMessage(new InformationMessage(message.ToString(), Color.White));
         }
 
@@ -223,19 +223,19 @@ namespace ClanManager.ClanCreator
             hero.Build = dynamicBodyProperties.Build;
             hero.Weight = dynamicBodyProperties.Weight;
             hero.Level = 0;
-            TextObject text = new TextObject("{=9Obe3S6L}{NAME} is a member of the {CLAN_NAME}, a rising new clan. {GENDER} {REPUTATION}.");
+            TextObject text = new TextObject("{=hueHdO50}{NAME} is a member of the {CLAN_NAME}, a rising new clan. {GENDER} {REPUTATION}.");
             text.SetTextVariable("NAME", firstName);
             text.SetTextVariable("CLAN_NAME", clan.Name);
-            text.SetTextVariable("GENDER", IsFemale ? "She" : "He");
+            text.SetTextVariable("GENDER", IsFemale ? new TextObject("{=jsCwPJ3J}She").ToString() : new TextObject("{=7K1yXgUw}He").ToString());
             if (hero.GetTraitLevel(DefaultTraits.Mercy) == 0 && hero.GetTraitLevel(DefaultTraits.Honor) == 0 && hero.GetTraitLevel(DefaultTraits.Generosity) == 0 && hero.GetTraitLevel(DefaultTraits.Valor) == 0 && hero.GetTraitLevel(DefaultTraits.Calculating) == 0)
             {
-                TextObject reputation = new TextObject("is still making {GENDER} reputation.");
-                reputation.SetTextVariable("GENDER", IsFemale ? "her" : "his");
+                TextObject reputation = new TextObject("{=hueHdO50}is still making {GENDER} reputation.");
+                reputation.SetTextVariable("GENDER", IsFemale ? new TextObject("{=9gGn1RzT}her").ToString() : new TextObject("{=FMYKVfuv}his").ToString());
                 text.SetTextVariable("REPUTATION", reputation);
             }
             else
             {
-                text.SetTextVariable("REPUTATION", "has the reputation of being " + CharacterHelper.GetReputationDescription(hero.CharacterObject));
+                text.SetTextVariable("REPUTATION", new TextObject("{=47smDnlk}has the reputation of being {DESCRIPTION}").SetTextVariable("DESCRIPTION", CharacterHelper.GetReputationDescription(hero.CharacterObject)).ToString());
             }
             hero.EncyclopediaText = text;
             hero.UpdateHomeSettlement();
