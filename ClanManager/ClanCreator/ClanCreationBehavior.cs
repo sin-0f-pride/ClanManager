@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.Core;
 using TaleWorlds.Localization;
 using TaleWorlds.ModuleManager;
-using TaleWorlds.Network;
 using TaleWorlds.ObjectSystem;
-using TaleWorlds.SaveSystem;
 
 namespace ClanManager.ClanCreator
 {

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+	<tags>
+		<tag language="English" />
+	</tags>
+	<strings>
+		<string id="e3pC77k9" text="Clan Creator loaded" />
+		<string id="6QUoCsDJ" text="Encyclopedia Tweaks (See Hint)" />
+		<string id="hMxjqjSD" text="Enables a clan name change button and removes the annoying shadow at the bottom of the clan page in the encyclopedia. Recommended to toggle on and off as needed so you can choose the names of spawned clans yourself, particularly those in your kingdom. Default value is Disabled." />
+		<string id="GlH54ipi" text="Other" />
+		<string id="2L5dh4eY" text="Spawn On Destruction" />
+		<string id="JftwpCVj" text="Enables spawning of clans after the destruction of another clan. Default is Enabled." />
+		<string id="iPZcv44F" text="Spawn Minor Clans" />
+		<string id="W3134oZw" text="Enables spawning for Minor clans after the destruction of another Minor clan. Default is Disabled." />
+		<string id="2HdnOwnd" text="Preserve Clan Tier" />
+		<string id="h8BphLAm" text="Sets the tier of the new clan(s) to the tier of the destroyed clan. Default is Disabled." />
+		<string id="f0pDnnFx" text="Number Of Clans" />
+		<string id="cUS8xOZW" text="The number of clans to spawn for each destroyed clan. Default is 1." />
+		<string id="vp2bEyHd" text="Spawn On Interval" />
+		<string id="cb1w2paM" text="Enables spawning of clans on an interval. Default is Disabled." />
+		<string id="k3Pl4gSP" text="Minor Clan Frequency" />
+		<string id="FZyYqieN" text="The frequency of clans to be spawned as a minor clan. Default is 0%." />
+		<string id="bm4gm2RA" text="Spawn Interval Type" />
+		<string id="h4O5Hyoj" text="The time interval type for spawning clans. Default is Daily." />
+		<string id="RBjnO8dO" text="Hourly" />
+		<string id="pDlbMeee" text="Daily" />
+		<string id="IXZdCfGr" text="Weekly" />
+		<string id="W2opiqqi" text="Spawn Interval Value" />
+		<string id="BO64UWTy" text="The time interval value for spawning clans. Default is 1." />
+		<string id="MmLKrNfA" text="Number Of Clans" />
+		<string id="J1lPZjss" text="The number of clans to spawn each interval. Default is 1." />
+		<string id="SmgX9Ojn" text="Clan Properties" />
+		<string id="ejm3RiiU" text="Preserve Cultures" />
+		<string id="rm5EC51X" text="On destruction: Preserves the destroyed clan culture. On interval: Preserves the culture with the least clans. May pick a different culture on each iteration if 'Number Of Clans' is more than 1. Default is Enabled." />
+		<string id="7byinotg" text="Preserve Kingdoms" />
+		<string id="F1qY6mJh" text="On destruction: Preserves the destroyed clan kingdom, or the kingdom with the least clans if one isn't found for the clan. Won't preserve kingdom of a mercenary clan. On interval: Preserves the kingdom with the least clans. Default is Disabled." />
+		<string id="QSU99UWV" text="Preserve Player Kingdom Inquiry" />
+		<string id="wQqa4vfR" text="Displays an inquiry whenever the player kingdom is chosen to be preserved to allow the choice of refusing a newly created clan. Requires 'Preserve Kingdoms' to be enabled or it does nothing. Default is Disabled." />
+		<string id="rXnBaoFZ" text="Minimum Clan Tier" />
+		<string id="0kjLx3pT" text="The minimum tier a spawned clan can have. Does nothing on destruction if 'Preserve Clan Tier' is enabled. Default is 0." />
+		<string id="iX5NyGT7" text="Maximum Clan Tier" />
+		<string id="DPNSA51p" text="The maximum tier a spawned clan can have. Does nothing on destruction if 'Preserve Clan Tier' is enabled. Default is 4." />
+		<string id="dZC9yjvn" text="Custom Name Policy" />
+		<string id="yeYaXEZN" text="Allows usage of the custom clan naming xml in located in the ModuleData folder. Must reload your save to activate mid-game. Can be freely deactivated without harming your save game. Recommended value is Mixed. Default is Native Only." />
+		<string id="sgBd15AI" text="Native Only" />
+		<string id="Hno3UosH" text="Mixed" />
+		<string id="ih6m7Rw0" text="Custom Only" />
+		<string id="9lLuoVXp" text="Duplicate Name Policy" />
+		<string id="3Q6WA17h" text="Allows spawning of a clan if the chosen name is already taken by an existing clan. By default, the mod only chooses an existing clan name if an unused name does not exist. Clan creation will be canceled if no usable name is found. Default is None." />
+		<string id="PXA2f2VL" text="None" />
+		<string id="nDeLJaYr" text="Eliminated Only" />
+		<string id="2tqvGdAF" text="All" />
+		<string id="7NcciANO" text="Fill Clan Parties" />
+		<string id="yrpmRjsG" text="The troop types to fill each clan party with. Note: None starts the clan from scratch, and could make their progression extremely difficult. Default is Basic troops only." />
+		<string id="V4uoxPq8" text="Basic troops only" />
+		<string id="ZZMzk3mF" text="Basic & Noble troops" />
+		<string id="a5Uryd6L" text="Noble troops only" />
+		<string id="ZCEE5IGN" text="Declare Wars On Spawn" />
+		<string id="whZBe8YI" text="Declares war on specified kingdom types when the clan is spawned. Clan(s) will have less of a chance of survival, but the option is there for chaos seekers. Default is None." />
+		<string id="08BvmgrA" text="AI Only" />
+		<string id="7D2onF3N" text="Player Only" />
+		<string id="MeuOco0u" text="Different Culture Only" />
+		<string id="I1BRJ0ha" text="Same Culture Only" />
+		<string id="uzpk2jDS" text="Minimum Heroes Spawned" />
+		<string id="DtOFcKes" text="The minimum number of heroes for spawned clans. Default is 5." />
+		<string id="FeYHk9jz" text="Hero Properties" />
+		<string id="cqZITSPf" text="Maximum Heroes Spawned" />
+		<string id="6BDzLuHZ" text="The maximum number of heroes for spawned clans. Default is 10." />
+		<string id="h9GqNhoh" text="Minimum Leader Hero Age" />
+		<string id="t1CTL7Pj" text="The minimum age of the leader hero for spawned clans. Default is 30." />
+		<string id="9rcOloAc" text="Maximum Leader Hero Age" />
+		<string id="YytXehJX" text="The maximum age of the leader hero for spawned clans. Default is 50." />
+		<string id="aAT63aqC" text="Minimum Hero Age" />
+		<string id="kHOtTfxp" text="The minimum age of heroes for spawned clans. Default is 30." />
+		<string id="7wYp9pA6" text="Maximum Hero Age" />
+		<string id="R6O8s1RN" text="The minimum age of heroes for spawned clans. Default is 50." />
+		<string id="aIna4f85" text="Minimum Personality Trait Level" />
+		<string id="CgnkpKzm" text="Minimum level of default personality traits. Default is -2." />
+		<string id="v73XjgH5" text="Maximum Personality Trait Level" />
+		<string id="zauNoekp" text="Maximum level of default personality traits. Default is 2." />
+		<string id="UVjVMgsd" text="Female Chance" />
+		<string id="HK0uGuNJ" text="Percentage chance of heroes being female. Affects the leader hero. Default is 51% female." />
+		<string id="NAMwMlk9" text="Starting Gold For Leader" />
+		<string id="bGfdt4Cb" text="The amount of gold the party leader(s) will start with. Default is 25k." />
+		<string id="s3gOtAM1" text="Extra Starting Gold Per Hero" />
+		<string id="lE0vY23m" text="The extra amount of gold the party leader(s) will start with. Default is 5k." />
+		<string id="XnI75682" text="A new clan emerged." />
+		<string id="sFGXUicT" text="A rising new clan, {CLAN_NAME}, has been spotted nearby and would like to serve our kingdom. Do you accept them?" />
+		<string id="ShdkpllV" text="A rising new clan, {CLAN_NAME}, has been spotted near {SETTLEMENT_NAME}." />
+		<string id="hueHdO50" text="{NAME} is a member of the {CLAN_NAME}, a rising new clan. {GENDER} {REPUTATION}." />
+		<string id="jsCwPJ3J" text="She" />
+		<string id="7K1yXgUw" text="He" />
+		<string id="7qrv8VzA" text="is still making {GENDER} reputation." />
+		<string id="9gGn1RzT" text="her" />
+		<string id="FMYKVfuv" text="his" />
+		<string id="47smDnlk" text="has the reputation of being {DESCRIPTION}" />
+</base>

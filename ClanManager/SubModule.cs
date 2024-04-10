@@ -7,6 +7,7 @@ using TaleWorlds.MountAndBlade;
 using Bannerlord.UIExtenderEx;
 using ClanManager.ClanCreator;
 using HarmonyLib;
+using TaleWorlds.Localization;
 
 namespace ClanManager
 {
@@ -26,7 +27,7 @@ namespace ClanManager
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
-            InformationManager.DisplayMessage(new InformationMessage("Clan Creator loaded"));
+            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=e3pC77k9}Clan Creator loaded").ToString()));
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
