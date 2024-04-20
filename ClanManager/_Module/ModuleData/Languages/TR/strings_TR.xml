@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="Türkçe" />
+  </tags>
+  <!-- Translation by turan61273: https://www.nexusmods.com/mountandblade2bannerlord/users/203932430 -->
+  <strings>
+    <string id="e3pC77k9" text="Clan Manager Yüklendi" />
+		<string id="6QUoCsDJ" text="Ansiklopedi Ayarı" />
+		<string id="hMxjqjSD" text="Ansiklopediye klan ismi düzenleme seçeneği ekler ve ansiklopedide klan sayfasının altındaki sinir bozucu gölgeyi kaldırır. İhtiyaca göre etkinleştirilmesi önerilir. Bu sayede (özellikle oyuncu krallığında) oluşturulan klanların ismini belirlemenizi sağlar. Varsayılan Devre Dışı." />
+		<string id="GlH54ipi" text="Diğer" />
+		<string id="2L5dh4eY" text="Yok Olduktan Sonra Klan Sonra Oluştur" />
+		<string id="JftwpCVj" text="Bir klan yıkıldıktan sonra yerine yeni bir klan oluşturulur. Varsayılan Etkin." />
+		<string id="iPZcv44F" text="Küçük Klan Oluştur" />
+		<string id="W3134oZw" text="Küçük bir klan yıkıldıktan sonra yerine küçük bir klan oluşturulur. Varsayılan Devre Dışı." />
+		<string id="2HdnOwnd" text="Klan Seviyesini Koru" />
+		<string id="h8BphLAm" text="Oluşturulacak klanlar, yıkılan klanla aynı seviyede aynı seviyede olur. Varsayılan Devre Dışı." />
+		<string id="f0pDnnFx" text="Klan Sayısı" />
+		<string id="cUS8xOZW" text="Yıkılan klan başına oluşturulacak yeni klan sayısı. Varsayılan 1." />
+		<string id="vp2bEyHd" text="Aralıklarla Klan Oluştur" />
+		<string id="cb1w2paM" text="Etkinleştirilirse, oyunda belirli aralıklarla klan oluşturulur. Varsayılan Devre Dışı." />
+		<string id="k3Pl4gSP" text="Küçük Klan Olma Şansı" />
+		<string id="FZyYqieN" text="Aralıklarla oluşturulan klan(lar)ın küçük klan olması ihtimali. Varsayılan %0." />
+		<string id="bm4gm2RA" text="Oluşturma Aralığı" />
+		<string id="h4O5Hyoj" text="Klan oluşturma sıklığı. Varsayılan Günlük." />
+		<string id="RBjnO8dO" text="Saatlik" />
+		<string id="pDlbMeee" text="Günlük" />
+		<string id="IXZdCfGr" text="Haftalık" />
+		<string id="W2opiqqi" text="Oluşturma Aralığı Değeri" />
+		<string id="BO64UWTy" text="Klan oluşturma aralığı değeri. Varsayılan 1." />
+		<string id="MmLKrNfA" text="Klan Sayısı" />
+		<string id="J1lPZjss" text="Klan oluşturma sıklığı başına oluşturulacak klan sayısı. Varsayılan 1." />
+		<string id="SmgX9Ojn" text="Klan Özellikleri" />
+		<string id="ejm3RiiU" text="Kültürü Koru" />
+		<string id="rm5EC51X" text="Yıkımda: Yıkılan klanla aynı kültürde klanlar oluşturur. Aralıkta: En az hangi kültürden klan varsa o kültürden klanlar oluşturulur. Oluşturulacak Klan Sayısı 1'den fazlaysa klanları farklı kültürlerde oluşturulabilir. Varsayılan Etkin." />
+		<string id="7byinotg" text="Krallığı Koru" />
+		<string id="F1qY6mJh" text="Yıkımda: Yıkılan klanın bağlı olduğu krallıkta klan oluşturulur, eğer krallığa bağlı olmayan bir klan yıkılmışsa en az klana sahip krallıkta klanlar oluşturulur. Paralı asker klanlarının krallığı korunmaz. Aralıklıda: En az klana sahip krallığa bağlı klanlar oluşturulur. Varsayılan Devre Dışı." />
+		<string id="QSU99UWV" text="Klanı Reddetme Hakkı" />
+		<string id="wQqa4vfR" text="Krallığı koru seçeneği etkinse ve oluşturulan klanlar oyuncu krallığına katılacaksa, oyuncuya bu klanları kabul etme/reddetme seçeneği sunulur. Bu ayar için 'Krallığı Koru' seçeneğinin Etkin olması gerekir, aksi halde bu ayar işlevsizdir. Varsayılan Devre Dışı." />
+		<string id="rXnBaoFZ" text="Minimum Klan Seviyesi" />
+		<string id="0kjLx3pT" text="Yeni oluşturulacak klanların sahip olabileceği minimum seviye. 'Klan Seviyesini Koru' seçeneği etkinse bu ayar işlevsizdir. Varsayılan 0." />
+		<string id="iX5NyGT7" text="Maksimum Klan Seviyesi" />
+		<string id="DPNSA51p" text="Yeni oluşturulacak klanların sahip olabileceği maksimum seviye. 'Klan Seviyesini Koru' seçeneği etkinse bu ayar işlevsizdir. Varsayılan 4." />
+		<string id="dZC9yjvn" text="Klan Adı Seçimi" />
+		<string id="yeYaXEZN" text="ModuleData klasöründeki XML dosyasında bulunan özel klan isimlerini kullanma izni. Devam eden bir kayıtlı oyunun ortasında etkinleştirilirse, kayıtlı oyunun yenilenmesi gerekir. Ancak, kayıtlı oyuna zarar vermeden devre dışı bırakılabilir. Önerilen ayar Karışık. Varsayılan Sadece Native." />
+		<string id="sgBd15AI" text="Sadece Native" />
+		<string id="Hno3UosH" text="Karışık" />
+		<string id="ih6m7Rw0" text="Sadece Özel İsim" />
+		<string id="9lLuoVXp" text="Klan İsmi Kopyalama İzni" />
+		<string id="3Q6WA17h" text="Mevcut klan isimlerinin yeni oluşturulacak klanlara verilip verilmeyeceği. Varsayılan olarak mod; boşta bir klan ismi yoksa, mevcut olan bir ismi kopyalar. Boşta isim yoksa ve kopya izni verilmezse, yeni klan oluşturulmaz. Varsayılan Hiçbiri." />
+		<string id="PXA2f2VL" text="Hiçbiri" />
+		<string id="nDeLJaYr" text="Sadece Yıkılan" />
+		<string id="2tqvGdAF" text="Tümü" />
+		<string id="7NcciANO" text="Klan Birliklerini Doldur" />
+		<string id="yrpmRjsG" text="Başlangıçta klan birliklerinde bulunacak asker tipleri. Not: Hiçbiri seçilirse, klan askersiz olarak oluşturulur ve klanın güçlenmesi son derece zor olur. Varsayılan Sadece Acemi Asker." />
+		<string id="V4uoxPq8" text="Sadece Acemi Asker" />
+		<string id="ZZMzk3mF" text="Acemi, Soylu Asker" />
+		<string id="a5Uryd6L" text="Sadece Soylu Asker" />
+		<string id="ZCEE5IGN" text="Oluşturulduktan Sonra Savaş İlanı" />
+		<string id="whZBe8YI" text="Oluşturulduktan hemen sonra klanların kimlerle savaşa girişeceği. Klanlar başlangıçta savaş ilan ederlerse hayatta kalma şansları daha az olur, bu seçenek kaos severler içindir. Varsayılan Hiçbiri." />
+		<string id="08BvmgrA" text="Sadece Yapay Zeka" />
+		<string id="7D2onF3N" text="Sadece Oyuncu" />
+		<string id="MeuOco0u" text="Sadece Farklı Kültür" />
+		<string id="I1BRJ0ha" text="Sadece Aynı Kültür" />
+		<string id="uzpk2jDS" text="Minimum Klan Üyesi" />
+		<string id="DtOFcKes" text="Oluşturulacak klandaki minimum klan üyesi sayısı. Varsayılan 5." />
+		<string id="FeYHk9jz" text="Klan Üyesi Seçenekleri" />
+		<string id="cqZITSPf" text="Maksimum Klan Üyesi" />
+		<string id="6BDzLuHZ" text="Oluşturulacak klandaki maksimum klan üyesi sayısı. Varsayılan 10." />
+		<string id="h9GqNhoh" text="Minimum Klan Lideri Yaşı" />
+		<string id="t1CTL7Pj" text="Oluşturulacak klan liderinin minimum yaşı. Varsayılan 30." />
+		<string id="9rcOloAc" text="Maksimum Klan Lideri Yaşı" />
+		<string id="YytXehJX" text="Oluşturulacak klan liderinin maksimum yaşı. Varsayılan 50." />
+		<string id="aAT63aqC" text="Minimum Üye Yaşı" />
+		<string id="kHOtTfxp" text="Oluşturulacak diğer klan üyelerinin minimum yaşı. Varsayılan 30." />
+		<string id="7wYp9pA6" text="Maksimum Üye Yaşı" />
+		<string id="R6O8s1RN" text="Oluşturulacak diğer klan üyelerinin maksimum yaşı. Varsayılan 50." />
+		<string id="aIna4f85" text="En Düşük Özellik Seviyesi" />
+		<string id="CgnkpKzm" text="Üyelerin sahip olacağı karakteristik özelliklerin minimum seviyesi. Varsayılan -2." />
+		<string id="v73XjgH5" text="En Fazla Özellik Seviyesi" />
+		<string id="zauNoekp" text="Üyelerin sahip olacağı karakteristik özelliklerin maksimum seviyesi. Varsayılan 2." />
+		<string id="UVjVMgsd" text="Kadın Üye Şansı" />
+		<string id="HK0uGuNJ" text="Klan üyelerinin kadın olma ihtimali. Klan lideri de bu şansa dahildir. Varsayılan 51% kadın." />
+		<string id="NAMwMlk9" text="Başlangıçtaki Lider Bütçesi" />
+		<string id="bGfdt4Cb" text="Birlik liderlerinin başlangıçta sahip olacağı altın miktarı. Varsayılan 25 bin." />
+		<string id="s3gOtAM1" text="Üye Başı Fazladan Başlangıç Bütçesi" />
+		<string id="lE0vY23m" text="Birlik liderlerinin sahip olacağı fazladan altın miktarı. Varsayılan 5 bin." />
+		<string id="XnI75682" text="Kalradya'da Yeni Bir Klan Doğuyor" />
+		<string id="sFGXUicT" text="Yeni kurulan {CLAN_NAME} klanı, civarlarda görüldü ve krallığımıza hizmet etmek istediğini bildirdi. Onları kabul edecek miyiz?" />
+		<string id="ShdkpllV" text="Yeni kurulan {CLAN_NAME} klanı, {SETTLEMENT_NAME} civarlarında görüldü." />
+		<string id="hueHdO50" text="{NAME}, yeni kurulan {CLAN_NAME} klanının bir üyesidir. {GENDER} {REPUTATION}." />
+		<string id="jsCwPJ3J" text="Kendisi" />
+		<string id="7K1yXgUw" text="Kendisi" />
+		<string id="7qrv8VzA" text="{GENDER}, halâ itibarını kazanma yolunda." />
+		<string id="9gGn1RzT" text="O" />
+		<string id="FMYKVfuv" text="O" />
+		<string id="47smDnlk" text="{DESCRIPTION} olmasıyla tanınıyor." />
+  </strings>
+</base>
