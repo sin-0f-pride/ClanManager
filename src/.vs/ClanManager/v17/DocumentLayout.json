@@ -1,12 +1,151 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|c:\\users\\mike\\desktop\\repos\\clanmanager\\src\\clanmanager\\clancreator\\clancreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|solutionrelative:clanmanager\\clancreator\\clancreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|c:\\users\\mike\\desktop\\repos\\clanmanager\\src\\clanmanager\\clancreator\\clancreationbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|solutionrelative:clanmanager\\clancreator\\clancreationbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|c:\\users\\mike\\desktop\\repos\\clanmanager\\src\\clanmanager\\gauntletui\\changeclannameinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|solutionrelative:clanmanager\\gauntletui\\changeclannameinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\clanmanager\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|solutionrelative:clanmanager\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\clanmanager\\saveabletypedefiner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|solutionrelative:clanmanager\\saveabletypedefiner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\clanmanager\\clancreator\\clancreatordata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|solutionrelative:clanmanager\\clancreator\\clancreatordata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\clanmanager\\gauntletui\\changeclannamevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|solutionrelative:clanmanager\\gauntletui\\changeclannamevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\clanmanager\\gauntletui\\encyclopediaclanpagevmmixin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFC5AEBD-27E4-494F-B361-10F0C673D90C}|ClanManager\\ClanManager.csproj|solutionrelative:clanmanager\\gauntletui\\encyclopediaclanpagevmmixin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClanCreator.cs",
+              "DocumentMoniker": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\ClanCreator\\ClanCreator.cs",
+              "RelativeDocumentMoniker": "ClanManager\\ClanCreator\\ClanCreator.cs",
+              "ToolTip": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\ClanCreator\\ClanCreator.cs",
+              "RelativeToolTip": "ClanManager\\ClanCreator\\ClanCreator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T07:28:48.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClanCreationBehavior.cs",
+              "DocumentMoniker": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\ClanCreator\\ClanCreationBehavior.cs",
+              "RelativeDocumentMoniker": "ClanManager\\ClanCreator\\ClanCreationBehavior.cs",
+              "ToolTip": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\ClanCreator\\ClanCreationBehavior.cs",
+              "RelativeToolTip": "ClanManager\\ClanCreator\\ClanCreationBehavior.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T07:28:34.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\Settings.cs",
+              "RelativeDocumentMoniker": "ClanManager\\Settings.cs",
+              "ToolTip": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\Settings.cs",
+              "RelativeToolTip": "ClanManager\\Settings.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAgwAUAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T07:27:55.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SaveableTypeDefiner.cs",
+              "DocumentMoniker": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\SaveableTypeDefiner.cs",
+              "RelativeDocumentMoniker": "ClanManager\\SaveableTypeDefiner.cs",
+              "ToolTip": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\SaveableTypeDefiner.cs",
+              "RelativeToolTip": "ClanManager\\SaveableTypeDefiner.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T07:27:46.872Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ClanCreatorData.cs",
+              "DocumentMoniker": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\ClanCreator\\ClanCreatorData.cs",
+              "RelativeDocumentMoniker": "ClanManager\\ClanCreator\\ClanCreatorData.cs",
+              "ToolTip": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\ClanCreator\\ClanCreatorData.cs",
+              "RelativeToolTip": "ClanManager\\ClanCreator\\ClanCreatorData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T07:27:31.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ChangeClanNameVM.cs",
+              "DocumentMoniker": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\GauntletUI\\ChangeClanNameVM.cs",
+              "RelativeDocumentMoniker": "ClanManager\\GauntletUI\\ChangeClanNameVM.cs",
+              "ToolTip": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\GauntletUI\\ChangeClanNameVM.cs",
+              "RelativeToolTip": "ClanManager\\GauntletUI\\ChangeClanNameVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T07:27:15.447Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChangeClanNameInterface.cs",
+              "DocumentMoniker": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\GauntletUI\\ChangeClanNameInterface.cs",
+              "RelativeDocumentMoniker": "ClanManager\\GauntletUI\\ChangeClanNameInterface.cs",
+              "ToolTip": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\GauntletUI\\ChangeClanNameInterface.cs",
+              "RelativeToolTip": "ClanManager\\GauntletUI\\ChangeClanNameInterface.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAjwBQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T07:26:44.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EncyclopediaClanPageVMMixin.cs",
+              "DocumentMoniker": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\GauntletUI\\EncyclopediaClanPageVMMixin.cs",
+              "RelativeDocumentMoniker": "ClanManager\\GauntletUI\\EncyclopediaClanPageVMMixin.cs",
+              "ToolTip": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\GauntletUI\\EncyclopediaClanPageVMMixin.cs",
+              "RelativeToolTip": "ClanManager\\GauntletUI\\EncyclopediaClanPageVMMixin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T07:25:24.833Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

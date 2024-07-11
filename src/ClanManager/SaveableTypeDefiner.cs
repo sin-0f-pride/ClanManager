@@ -1,5 +1,4 @@
 ﻿using ClanManager.ClanCreator;
-using TaleWorlds.SaveSystem;
 
 namespace ClanManager
 {
