@@ -1,4 +1,3 @@
-
-/.vs
-/ClanManager/obj
-/ClanManager/bin
+/src/.vs
+/src/ClanManager/bin
+/src/ClanManager/obj

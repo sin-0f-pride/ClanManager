@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using ClanManager.ClanCreator;
-using HarmonyLib;
+
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
+
+using ClanManager.ClanCreator;
+using HarmonyLib;
 
 namespace ClanManager.Patches
 {

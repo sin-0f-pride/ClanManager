@@ -3,7 +3,7 @@ using TaleWorlds.SaveSystem;
 
 namespace ClanManager
 {
-    internal class SaveableTypeDefiner : SaveableTypeDefiner
+    internal class SaveableTypeDefiner : TaleWorlds.SaveSystem.SaveableTypeDefiner
     {
         public SaveableTypeDefiner() : base((0xd41318 << 8) | 123) { }
 

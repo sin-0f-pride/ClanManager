@@ -1,8 +1,9 @@
-﻿using MCM.Abstractions.Attributes;
+﻿using TaleWorlds.CampaignSystem;
+
+using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Base.Global;
 using MCM.Common;
-using TaleWorlds.CampaignSystem;
 
 namespace ClanManager
 {
