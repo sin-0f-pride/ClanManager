@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClanManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.1.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1+3814252b8820f4168c76213bda5563a4545886cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1+e12604601e28d11c56f71a88b5acab76e734ba60")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClanManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClanManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.0.1.0")]

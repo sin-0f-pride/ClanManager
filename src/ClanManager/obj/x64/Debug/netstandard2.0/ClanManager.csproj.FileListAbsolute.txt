@@ -68,3 +68,11 @@ C:\Users\Mike\Desktop\repos\ClanManager\ClanManager\obj\x64\Debug\netstandard2.0
 C:\Users\Mike\Desktop\repos\ClanManager\ClanManager\obj\x64\Debug\netstandard2.0\ClanMana.02CEFA4F.Up2Date
 C:\Users\Mike\Desktop\repos\ClanManager\ClanManager\obj\x64\Debug\netstandard2.0\ClanManager.dll
 C:\Users\Mike\Desktop\repos\ClanManager\ClanManager\obj\x64\Debug\netstandard2.0\ClanManager.pdb
+C:\Users\Mike\Desktop\repos\ClanManager\src\ClanManager\obj\x64\Debug\netstandard2.0\ClanManager.csproj.AssemblyReference.cache
+C:\Users\Mike\Desktop\repos\ClanManager\src\ClanManager\obj\x64\Debug\netstandard2.0\ClanManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mike\Desktop\repos\ClanManager\src\ClanManager\obj\x64\Debug\netstandard2.0\ClanManager.AssemblyInfoInputs.cache
+C:\Users\Mike\Desktop\repos\ClanManager\src\ClanManager\obj\x64\Debug\netstandard2.0\ClanManager.AssemblyInfo.cs
+C:\Users\Mike\Desktop\repos\ClanManager\src\ClanManager\obj\x64\Debug\netstandard2.0\ClanManager.csproj.CoreCompileInputs.cache
+C:\Users\Mike\Desktop\repos\ClanManager\src\ClanManager\obj\x64\Debug\netstandard2.0\ClanManager.sourcelink.json
+C:\Users\Mike\Desktop\repos\ClanManager\src\ClanManager\obj\x64\Debug\netstandard2.0\ClanManager.dll
+C:\Users\Mike\Desktop\repos\ClanManager\src\ClanManager\obj\x64\Debug\netstandard2.0\ClanManager.pdb
