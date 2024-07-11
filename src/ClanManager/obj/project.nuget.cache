@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zuNmorQkPe7SNlJ0prh0z+RP+/Sxl0Y9GQOaHKZIeT1/oAc+jelMcI9fWN1d3ghzal8UNMrYUysAmYfUc12MRA==",
+  "dgSpecHash": "QC2OJjeQ1jXGBAKTUj+CCY/fmgN7EQq7JWTMJ8m4wKtCaaSMftltsQuetW5538Q2x0PO12jB4Zxy9/8xHw6aCQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\ClanManager\\ClanManager.csproj",
+  "projectFilePath": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\ClanManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mike\\.nuget\\packages\\bannerlord.buildresources\\1.1.0.102\\bannerlord.buildresources.1.1.0.102.nupkg.sha512",
     "C:\\Users\\Mike\\.nuget\\packages\\bannerlord.lib.harmony\\2.2.2\\bannerlord.lib.harmony.2.2.2.nupkg.sha512",

@@ -1014,11 +1014,11 @@
   "project": {
     "version": "0.0.1",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\ClanManager\\ClanManager.csproj",
+      "projectUniqueName": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\ClanManager.csproj",
       "projectName": "ClanManager",
-      "projectPath": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\ClanManager\\ClanManager.csproj",
+      "projectPath": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\ClanManager.csproj",
       "packagesPath": "C:\\Users\\Mike\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\ClanManager\\obj\\",
+      "outputPath": "C:\\Users\\Mike\\Desktop\\repos\\ClanManager\\src\\ClanManager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
