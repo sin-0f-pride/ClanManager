@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
+﻿using System;
 using TaleWorlds.Library;
 
 namespace ClanManager.GauntletUI
@@ -17,7 +16,6 @@ namespace ClanManager.GauntletUI
             RefreshValues();
         }
 
-        [UsedImplicitly]
         public void OnCancel()
         {
             _onFinalize.Invoke();
