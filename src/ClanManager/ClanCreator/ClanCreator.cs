@@ -163,7 +163,10 @@ namespace ClanManager.ClanCreator
                                 },
                                 () =>
                                 {
-                                    ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdoms.ElementAtOrDefault(1));
+                                    if (kingdoms.Count() > 1)
+                                    {
+                                        ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdoms.ElementAtOrDefault(1));
+                                    }
                                 }
                             ), true);
                     }
