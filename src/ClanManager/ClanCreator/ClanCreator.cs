@@ -104,37 +104,40 @@ namespace ClanManager.ClanCreator
                 GiveGoldAction.ApplyBetweenCharacters(null, leader, (int)(Settings.Current.ExtraStartingGoldPerHero) * 1000, true);
             }
             //Decides whether troops should be added based on the setting, then creates a single party for the clan and populates it with culture troops until the clan strength is met or close to being met without going over.
-            Hero strongest = null;
-            int strongestSum = 0;
-            int parties = clan.CommanderLimit;
-            for (int p = 0; p < clan.CommanderLimit; p++)
+            int selectedIndex = Settings.Current.FillClanParties.SelectedIndex;
+            if (selectedIndex != 0)
             {
-                foreach (Hero h in clan.Heroes)
+                for (int parties = 0; parties < clan.CommanderLimit; parties++)
                 {
-                    if (h.IsPartyLeader)
+                    Hero strongest = null!;
+                    int strongestSum = 0;
+                    foreach (Hero h in clan.Heroes)
                     {
-                        continue;
+                        if (h.IsPartyLeader)
+                        {
+                            continue;
+                        }
+                        int sum = 0;
+                        foreach (KeyValuePair<SkillObject, int> skill in GetAllSkillLevels(h))
+                        {
+                            sum += skill.Value;
+                        }
+                        if (sum > strongestSum)
+                        {
+                            strongest = h;
+                            strongestSum = sum;
+                        }
                     }
-                    int sum = 0;
-                    foreach (KeyValuePair<SkillObject, int> skill in GetAllSkillLevels(h))
+                    if (strongest == null)
                     {
-                        sum += skill.Value;
+                        break;
                     }
-                    if (sum > strongestSum)
+                    MobileParty party = LordPartyComponent.CreateLordParty("CC_" + MobileParty.All.Count, strongest, settlement.GatePosition, 150f, settlement, strongest);
+                    party.AddElementToMemberRoster(selectedIndex == 1 || (selectedIndex == 2 && MBRandom.RandomInt(1) == 0) ? culture.BasicTroop : culture.EliteBasicTroop, party.LimitedPartySize - party.MemberRoster.Count);
+                    if (party.MemberRoster.Count < 1)
                     {
-                        strongest = h;
-                        strongestSum = sum;
+                        party.RemoveParty();
                     }
-                }
-                if (strongest == null)
-                {
-                    break;
-                }
-                MobileParty party = LordPartyComponent.CreateLordParty("CC_" + MobileParty.All.Count, strongest, settlement.GatePosition, 150f, settlement, strongest);
-                int settingIndex = Settings.Current.FillClanParties.SelectedIndex;
-                if (settingIndex != 0)
-                {
-                    party.AddElementToMemberRoster(settingIndex == 1 || (settingIndex == 2 && MBRandom.RandomInt(1) == 0) ? culture.BasicTroop : culture.EliteBasicTroop, party.LimitedPartySize - party.MemberRoster.Count);
                 }
             }
             //Don't preserve kingdom for mercenaries
