@@ -63,5 +63,65 @@ namespace ClanManager
             GiveGoldAction.ApplyBetweenCharacters(null, clan.Leader, (int)(Settings.Current.ExtraStartingGoldPerHero) * 1000, true);
             return string.Format("{0} is added to the {1} clan.", hero.Name, clan.Name);
         }
+
+        [CommandLineFunctionality.CommandLineArgumentFunction("set_clan_kingdom", "clanmanager")]
+        public static string SetClanKingdom(List<string> strings)
+        {
+            if (!CampaignCheats.CheckCheatUsage(ref CampaignCheats.ErrorType))
+            {
+                return CampaignCheats.ErrorType;
+            }
+            string text = "Format is \"clanmanager.set_clan_leader [ClanName] | [KingdomName / FirstTwoCharactersOfKingdomName]\".";
+            if (CampaignCheats.CheckHelp(strings))
+            {
+                return text;
+            }
+            List<string> separatedNames = CampaignCheats.GetSeparatedNames(strings, "|");
+            if (separatedNames.Count < 2)
+            {
+                return text;
+            }
+            string clanName = separatedNames[0];
+            Clan clan = CampaignCheats.GetClan(clanName);
+            if (clan == null || clan.IsEliminated)
+            {
+                return clanName + " is not found.\n" + text;
+            }
+            string kingdomName = separatedNames[1].Replace(" ", "");
+            Kingdom kingdom = null!;
+            foreach (Kingdom k in Kingdom.All)
+            {
+                if (k.Name.ToString().Equals(kingdomName, StringComparison.OrdinalIgnoreCase))
+                {
+                    kingdomName = k.Name.ToString();
+                    kingdom = k;
+                    break;
+                }
+                if (kingdomName.Length >= 2 && k.Name.ToString().ToLower().Substring(0, 2).Equals(kingdomName.ToLower().Substring(0, 2)))
+                {
+                    kingdomName = k.Name.ToString();
+                    kingdom = k;
+                    break;
+                }
+            }
+            if (kingdom == null)
+            {
+                return kingdomName + " is not found.\n" + text;
+            }
+            if (kingdom == clan.Kingdom)
+            {
+                return clanName + " is already in the " + kingdomName + " kingdom.\n";
+            }
+            if (clan.IsEliminated || clan.Leader == clan.Kingdom.Leader || clan.IsUnderMercenaryService)
+            {
+                return clanName + " is not a valid candidate to join the " + kingdomName + " kingdom.\nClan must be an active non ruling clan not currently under a mercenary contract.\n" + text;
+            }
+            if (clan.Kingdom != null)
+            {
+                ChangeKingdomAction.ApplyByLeaveKingdom(clan, true);
+            }
+            ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom, true);
+            return string.Format("{0} has been moved to the {1} kingdom.", clan.Name, kingdom.Name);
+        }
     }
 }
