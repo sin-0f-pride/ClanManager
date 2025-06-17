@@ -1,6 +1,4 @@
-﻿using ClanManager.ClanCreator;
-
-namespace ClanManager
+﻿namespace ClanManager
 {
     internal class SaveableTypeDefiner : TaleWorlds.SaveSystem.SaveableTypeDefiner
     {

@@ -1,7 +1,7 @@
 ﻿using TaleWorlds.CampaignSystem;
 using TaleWorlds.SaveSystem;
 
-namespace ClanManager.ClanCreator
+namespace ClanManager
 {
     internal class ClanCreatorData
     {

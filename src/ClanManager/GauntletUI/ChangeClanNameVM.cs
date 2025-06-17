@@ -1,4 +1,5 @@
 ﻿using System;
+
 using TaleWorlds.Library;
 
 namespace ClanManager.GauntletUI
