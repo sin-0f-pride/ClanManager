@@ -60,9 +60,7 @@ namespace ClanManager
                 explanation = new TextObject("{=CY3SwZFC}You will spend {NEEDED_INFLUENCE_TO_GRANT_TITLE}{INFLUENCE_ICON}.", null);
                 return true;
             }
-            explanation = new TextObject("{=!}{INFLUENCE_REQUIREMENT}", null);
-            TextObject variable2 = new TextObject("{=wCRk12HK}You need {NEEDED_INFLUENCE_TO_GRANT_TITLE}{INFLUENCE_ICON}.", null);
-            explanation.SetTextVariable("INFLUENCE_REQUIREMENT", variable2);
+            explanation = new TextObject("{=wCRk12HK}You need {NEEDED_INFLUENCE_TO_GRANT_TITLE}{INFLUENCE_ICON}.", null);
             return false;
         }
 
