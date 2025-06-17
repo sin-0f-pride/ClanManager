@@ -123,5 +123,45 @@ namespace ClanManager
             ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom, true);
             return string.Format("{0} has been moved to the {1} kingdom.", clan.Name, kingdom.Name);
         }
+
+        [CommandLineFunctionality.CommandLineArgumentFunction("set_clan_leader", "clanmanager")]
+        public static string SetClanLeader(List<string> strings)
+        {
+            if (!CampaignCheats.CheckCheatUsage(ref CampaignCheats.ErrorType))
+            {
+                return CampaignCheats.ErrorType;
+            }
+            string text = "Format is \"clanmanager.set_clan_leader [ClanName] | [HeroName]\".";
+            if (CampaignCheats.CheckHelp(strings))
+            {
+                return text;
+            }
+            List<string> separatedNames = CampaignCheats.GetSeparatedNames(strings, "|");
+            if (separatedNames.Count < 2)
+            {
+                return text;
+            }
+            string clanName = separatedNames[0];
+            Clan clan = CampaignCheats.GetClan(clanName);
+            if (clan == null || clan.IsEliminated)
+            {
+                return clanName + " is not found.\n" + text;
+            }
+            if (clan == Clan.PlayerClan)
+            {
+                return "Can not change leader of the player clan!";
+            }
+            string heroName = separatedNames[1];
+            Hero hero = CampaignCheats.GetHero(heroName);
+            if (hero == null) {
+                return clanName + " is not found.\n" + text;
+            }
+            if (clan != hero.Clan || hero.IsChild || hero.IsClanLeader || hero.IsDead)
+            {
+                return clanName + " is not a valid candidate to lead the " + clanName + " clan.\nHero must be a living member of the target clan, and not already leading a clan.\n" + text;
+            }
+            clan.SetLeader(hero);
+            return string.Format("{0} is the new leader of the {1} clan.", hero.Name, clan.Name);
+        }
     }
 }
