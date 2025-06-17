@@ -1,15 +1,17 @@
-﻿using Bannerlord.UIExtenderEx.Attributes;
-using Bannerlord.UIExtenderEx.ViewModels;
-using Helpers;
-using JetBrains.Annotations;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
+
+using Helpers;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.ScreenSystem;
+
+using JetBrains.Annotations;
+using Bannerlord.UIExtenderEx.Attributes;
+using Bannerlord.UIExtenderEx.ViewModels;
 
 namespace ClanManager.GauntletUI
 {

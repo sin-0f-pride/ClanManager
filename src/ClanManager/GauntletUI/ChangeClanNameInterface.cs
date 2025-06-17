@@ -1,8 +1,10 @@
-﻿using HarmonyLib.BUTR.Extensions;
-using System;
+﻿using System;
+
 using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.Library;
 using TaleWorlds.ScreenSystem;
+
+using HarmonyLib.BUTR.Extensions;
 
 namespace ClanManager.GauntletUI
 {

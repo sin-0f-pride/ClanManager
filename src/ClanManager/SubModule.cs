@@ -1,13 +1,18 @@
 ﻿using System.IO;
 using System;
+
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
-using TaleWorlds.MountAndBlade;
-using Bannerlord.UIExtenderEx;
-using ClanManager.ClanCreator;
-using HarmonyLib;
 using TaleWorlds.Localization;
+using TaleWorlds.MountAndBlade;
+
+using Bannerlord.UIExtenderEx;
+using HarmonyLib;
+
+using ClanManager.Behaviors;
+using ClanManager.ClanCreator;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
 
 namespace ClanManager
 {
@@ -38,8 +43,10 @@ namespace ClanManager
             {
                 CampaignGameStarter starter = (CampaignGameStarter)gameStarterObject;
                 starter.AddBehavior(new ClanCreationBehavior());
+                starter.AddBehavior(new CMLordConversationsCampaignBehavior());
             }
         }
+
         public static void Log(string message)
         {
             string text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Mount and Blade II Bannerlord", "Logs");

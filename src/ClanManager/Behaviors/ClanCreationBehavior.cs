@@ -7,7 +7,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.ModuleManager;
 using TaleWorlds.ObjectSystem;
 
-namespace ClanManager.ClanCreator
+namespace ClanManager.Behaviors
 {
     internal class ClanCreationBehavior : CampaignBehaviorBase
     {
@@ -20,7 +20,6 @@ namespace ClanManager.ClanCreator
             _clanCreatorData ??= new();
         }
 
-
         public override void RegisterEvents()
         {
             CampaignEvents.OnClanDestroyedEvent.AddNonSerializedListener(this, OnClanDestroyed);
@@ -32,7 +31,7 @@ namespace ClanManager.ClanCreator
         //Create new clan with the mod settings whenever a clan is destroyed 
         private void OnClanDestroyed(Clan c)
         {
-            if (c == null || !Settings.Current.EnableSpawnOnDestruction || (!Settings.Current.MinorClansOnDestruction && (c.IsMinorFaction || c.IsClanTypeMercenary || c.Tier == 0))) return;
+            if (c == null || !Settings.Current.EnableSpawnOnDestruction || !Settings.Current.MinorClansOnDestruction && (c.IsMinorFaction || c.IsClanTypeMercenary || c.Tier == 0)) return;
             for (int n = 0; n < Settings.Current.NumberOfClansOnDestruction; n++)
             {
                 ClanCreator.CreateClan(c);
@@ -68,7 +67,7 @@ namespace ClanManager.ClanCreator
                 XmlNode root = document.ChildNodes[1];
                 foreach (XmlNode c in root.ChildNodes)
                 {
-                    CultureObject culture = MBObjectManager.Instance.GetObjectTypeList<CultureObject>().Where((CultureObject d) => d.IsMainCulture && d.Name.ToString().ToLower() == c.Attributes["id"].Value).FirstOrDefault();
+                    CultureObject culture = MBObjectManager.Instance.GetObjectTypeList<CultureObject>().Where((d) => d.IsMainCulture && d.Name.ToString().ToLower() == c.Attributes["id"].Value).FirstOrDefault();
                     if (culture != null)
                     {
                         List<TextObject> _clanNameList = new List<TextObject>();
