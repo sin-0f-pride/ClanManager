@@ -163,5 +163,46 @@ namespace ClanManager
             clan.SetLeader(hero);
             return string.Format("{0} is the new leader of the {1} clan.", hero.Name, clan.Name);
         }
+
+        [CommandLineFunctionality.CommandLineArgumentFunction("set_hero_clan", "clanmanager")]
+        public static string SetHeroClan(List<string> strings)
+        {
+            if (!CampaignCheats.CheckCheatUsage(ref CampaignCheats.ErrorType))
+            {
+                return CampaignCheats.ErrorType;
+            }
+            string text = "Format is \"clanmanager.set_hero_clan [HeroName] | [ClanName]\".";
+            if (CampaignCheats.CheckHelp(strings))
+            {
+                return text;
+            }
+            List<string> separatedNames = CampaignCheats.GetSeparatedNames(strings, "|");
+            if (separatedNames.Count < 2)
+            {
+                return text;
+            }
+            string heroName = separatedNames[0];
+            Hero hero = CampaignCheats.GetHero(heroName);
+            if (hero == null || !hero.IsActive)
+            {
+                return heroName + " is not found.\n" + text;
+            }
+            if (hero.IsClanLeader || hero.IsDead)
+            {
+                return heroName + "'s clan can not be changed. Hero must be alive and not leading a clan.\n" + text;
+            }
+            string clanName = separatedNames[1];
+            Clan clan = CampaignCheats.GetClan(clanName);
+            if (clan == null || clan.IsEliminated)
+            {
+                return clanName + " is not found.\n" + text;
+            }
+            if (clan == hero.Clan)
+            {
+                return heroName + " is already in the " + clanName + " clan.\n";
+            }
+            hero.Clan = clan;
+            return string.Format("{0} has been moved to the {1} clan.", hero.Name, clan.Name);
+        }
     }
 }
