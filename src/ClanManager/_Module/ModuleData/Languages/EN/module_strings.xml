@@ -87,12 +87,7 @@
 		<string id="XnI75682" text="A new clan emerged." />
 		<string id="sFGXUicT" text="A rising new clan, {CLAN_NAME}, has been spotted nearby and would like to serve our kingdom. Do you accept them?" />
 		<string id="ShdkpllV" text="A rising new clan, {CLAN_NAME}, has been spotted near {SETTLEMENT_NAME}." />
-		<string id="hueHdO50" text="{NAME} is a member of the {CLAN_NAME}, a rising new clan. {GENDER} {REPUTATION}." />
-		<string id="jsCwPJ3J" text="She" />
-		<string id="7K1yXgUw" text="He" />
-		<string id="7qrv8VzA" text="is still making {GENDER} reputation." />
-		<string id="9gGn1RzT" text="her" />
-		<string id="FMYKVfuv" text="his" />
-		<string id="47smDnlk" text="has the reputation of being {DESCRIPTION}" />
+		<string id="CY3SwZFC" text="You will spend {NEEDED_INFLUENCE_TO_GRANT_TITLE}{INFLUENCE_ICON}." />
+		<string id="wCRk12HK" text="You need {NEEDED_INFLUENCE_TO_GRANT_TITLE}{INFLUENCE_ICON}." />
 	</strings>
 </base>
