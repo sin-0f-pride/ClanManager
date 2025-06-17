@@ -117,46 +117,50 @@ namespace ClanManager.Actions
                 }
             }
             //Don't preserve kingdom for mercenaries
-            if (Settings.Current.PreserveKingdoms && !mercenary)
+            if (detail == CreateClanDetail.ByCreateAutonomously)
             {
-                // Preserve old clan kingdom. If it's null, preserve the kingdom with the least active clans. If the kingdom is owned by the player, give them the option. If the player refuses, move to next kingdom.
-                IEnumerable<Kingdom> kingdoms = from k in Kingdom.All orderby (from j in k.Clans where !j.IsEliminated select j).Count() ascending select k;
-                // TODO fix, poor implementation
-                Kingdom kingdom = oldClan != null && oldClan.Kingdom != null ? oldClan.Kingdom : detail == CreateClanDetail.ByTurningToLord && Hero.MainHero.Clan.Kingdom != null ? Hero.MainHero.Clan.Kingdom : kingdoms.ElementAtOrDefault(0);
-                if (kingdom != null)
+                if (Settings.Current.PreserveKingdoms && !mercenary)
                 {
-                    if (Settings.Current.PreservePlayerKingdomInquiry && kingdom.Leader == Hero.MainHero)
+                    // Preserve old clan kingdom. If it's null, preserve the kingdom with the least active clans. If the kingdom is owned by the player, give them the option. If the player refuses, move to next kingdom.
+                    IEnumerable<Kingdom> kingdoms = from k in Kingdom.All orderby (from j in k.Clans where !j.IsEliminated select j).Count() ascending select k;
+                    // TODO fix, poor implementation
+                    Kingdom kingdom = oldClan != null && oldClan.Kingdom != null ? oldClan.Kingdom : kingdoms.ElementAtOrDefault(0);
+                    if (kingdom != null)
                     {
-                        InformationManager.ShowInquiry(
-                            new InquiryData(
-                                new TextObject("{=XnI75682}A new clan emerged.").ToString(),
-                                new TextObject("{=sFGXUicT}A rising new clan, {CLAN_NAME}, has been spotted nearby and would like to serve our kingdom. Do you accept them?").SetTextVariable("CLAN_NAME", clan.Name).ToString(),
-                                true, true,
-                                new TextObject("{=ZdqbU2gw}Accept").ToString(),
-                                new TextObject("{=D9WJXQ9Z}Reject").ToString(),
-                                () =>
-                                {
-                                    ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom);
-                                },
-                                () =>
-                                {
-                                    if (kingdoms.Count() > 1)
+                        if (Settings.Current.PreservePlayerKingdomInquiry && kingdom.Leader == Hero.MainHero)
+                        {
+                            InformationManager.ShowInquiry(
+                                new InquiryData(
+                                    new TextObject("{=XnI75682}A new clan emerged.").ToString(),
+                                    new TextObject("{=sFGXUicT}A rising new clan, {CLAN_NAME}, has been spotted nearby and would like to serve our kingdom. Do you accept them?").SetTextVariable("CLAN_NAME", clan.Name).ToString(),
+                                    true, true,
+                                    new TextObject("{=ZdqbU2gw}Accept").ToString(),
+                                    new TextObject("{=D9WJXQ9Z}Reject").ToString(),
+                                    () =>
                                     {
-                                        ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdoms.ElementAtOrDefault(1));
+                                        ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom);
+                                    },
+                                    () =>
+                                    {
+                                        if (kingdoms.Count() > 1)
+                                        {
+                                            ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdoms.ElementAtOrDefault(1));
+                                        }
                                     }
-                                }
-                            ), true);
-                    }
-                    else
-                    {
-                        ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom);
+                                ), true);
+                        }
+                        else
+                        {
+                            ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom);
+                        }
                     }
                 }
+                TextObject message = new TextObject("{=ShdkpllV}A rising new clan, {CLAN_NAME}, has been spotted near {SETTLEMENT_NAME}.").SetTextVariable("CLAN_NAME", clan.Name).SetTextVariable("SETTLEMENT_NAME", settlement.Name);
+                InformationManager.DisplayMessage(new InformationMessage(message.ToString(), Color.White));
             }
-            TextObject message = new TextObject("{=ShdkpllV}A rising new clan, {CLAN_NAME}, has been spotted near {SETTLEMENT_NAME}.").SetTextVariable("CLAN_NAME", clan.Name).SetTextVariable("SETTLEMENT_NAME", settlement.Name);
-            InformationManager.DisplayMessage(new InformationMessage(message.ToString(), Color.White));
-            if (detail == CreateClanDetail.ByTurningToLord)
+            else
             {
+                ChangeKingdomAction.ApplyByJoinToKingdom(clan, Clan.PlayerClan.Kingdom);
                 GainKingdomInfluenceAction.ApplyForDefault(Hero.MainHero, -1000f);
                 ChangeRelationAction.ApplyPlayerRelation(leader, 50, true, true);
                 CampaignEventDispatcher.Instance.OnCompanionClanCreated(clan);
