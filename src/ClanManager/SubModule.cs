@@ -11,8 +11,6 @@ using Bannerlord.UIExtenderEx;
 using HarmonyLib;
 
 using ClanManager.Behaviors;
-using ClanManager.ClanCreator;
-using TaleWorlds.CampaignSystem.CampaignBehaviors;
 
 namespace ClanManager
 {

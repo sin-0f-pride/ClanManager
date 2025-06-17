@@ -5,8 +5,8 @@ using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
 using HarmonyLib;
+
 using ClanManager.Behaviors;
-using ClanManager.ClanCreator;
 
 namespace ClanManager.Patches
 {
