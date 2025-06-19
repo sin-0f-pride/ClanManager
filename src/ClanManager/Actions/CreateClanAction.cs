@@ -122,7 +122,7 @@ namespace ClanManager.Actions
                 if (Settings.Current.PreserveKingdoms && !mercenary)
                 {
                     // Preserve old clan kingdom. If it's null, preserve the kingdom with the least active clans. If the kingdom is owned by the player, give them the option. If the player refuses, move to next kingdom.
-                    IEnumerable<Kingdom> kingdoms = from k in Kingdom.All orderby (from j in k.Clans where !j.IsEliminated select j).Count() ascending select k;
+                    IEnumerable<Kingdom> kingdoms = from k in Kingdom.All where !k.IsEliminated orderby (from j in k.Clans where !j.IsEliminated select j).Count() ascending select k;
                     // TODO fix, poor implementation
                     Kingdom kingdom = oldClan != null && oldClan.Kingdom != null ? oldClan.Kingdom : kingdoms.ElementAtOrDefault(0);
                     if (kingdom != null)
