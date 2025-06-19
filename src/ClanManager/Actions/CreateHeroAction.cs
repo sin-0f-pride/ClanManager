@@ -63,7 +63,6 @@ namespace ClanManager.Actions
             hero.Build = dynamicBodyProperties.Build;
             hero.Weight = dynamicBodyProperties.Weight;
             hero.Level = 0;
-            hero.EncyclopediaText = Hero.SetHeroEncyclopediaTextAndLinks(hero);
             hero.UpdateHomeSettlement();
             hero.ChangeState(Hero.CharacterStates.Active);
             return hero;

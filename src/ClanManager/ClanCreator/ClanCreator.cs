@@ -9,6 +9,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.ObjectSystem;
 
 using ClanManager.Actions;
+using TaleWorlds.Library;
 
 namespace ClanManager
 {
@@ -44,8 +45,16 @@ namespace ClanManager
             }
             Settlement settlement = oldClan != null ? oldClan.Leader.HomeSettlement : Settlement.All.GetRandomElementWithPredicate((s) => s.Culture == culture && s.IsTown) ?? SettlementHelper.GetRandomTown();
             TextObject name = NameGenerator.Current.GenerateClanName(culture, settlement);
-            if (name == null || (Settings.Current.DuplicateClanNames.SelectedIndex < 2 && Clan.All.Count((Clan x) => x.Name.ToString().ToLower() == name.ToString().ToLower() && (Settings.Current.DuplicateClanNames.SelectedIndex == 0 || !x.IsEliminated)) > 0))
+            if (name == null)
             {
+                return;
+            }
+            if ((Settings.Current.DuplicateClanNames.SelectedIndex < 2 && Clan.All.Count((Clan x) => x.Name.ToString().ToLower() == name.ToString().ToLower() && (Settings.Current.DuplicateClanNames.SelectedIndex == 0 || !x.IsEliminated)) > 0))
+            {
+
+                TextObject message = new TextObject("{=!!}Clan Manager Warning: Attempt to create new clan failed! Please add more names to ModuleData\\CultureClanNames.xml or set 'Duplicate Name Policy' MCM option to 'Eliminated Only' / 'All'.");
+                InformationManager.DisplayMessage(new InformationMessage(message.ToString(), Color.FromUint(0x00F16D26)));
+                SubModule.Log(message.ToString());
                 return;
             }
             CreateClanAction.ApplyByCreateAutonomously(name, oldClan!, culture, settlement);
