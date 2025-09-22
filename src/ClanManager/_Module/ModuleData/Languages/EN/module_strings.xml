@@ -73,7 +73,11 @@
 		<string id="aAT63aqC" text="Minimum Hero Age" />
 		<string id="kHOtTfxp" text="The minimum age of heroes for spawned clans. Default is 30." />
 		<string id="7wYp9pA6" text="Maximum Hero Age" />
-		<string id="R6O8s1RN" text="The minimum age of heroes for spawned clans. Default is 50." />
+		<string id="R6O8s1RN" text="The maximum age of heroes for spawned clans. Default is 50." />
+		<string id="7FRDfNUE" text="Minimum Skill Level" />
+		<string id="FsmNMS4s" text="The minimum level for each skill. Cannot be higher than Maximum Skill Level. Default is 0." />
+		<string id="OJqCHHSN" text="Maximum Skill Level" />
+		<string id="hk6gGhSy" text="The maximum level for each skill. Cannot be lower than Minimum Skill Level. Default is 175." />
 		<string id="aIna4f85" text="Minimum Personality Trait Level" />
 		<string id="CgnkpKzm" text="Minimum level of default personality traits. Default is -2." />
 		<string id="v73XjgH5" text="Maximum Personality Trait Level" />

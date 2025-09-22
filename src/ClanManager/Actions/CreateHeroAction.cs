@@ -38,6 +38,10 @@ namespace ClanManager.Actions
                 hero.SetTraitLevel(DefaultTraits.Generosity, MBRandom.RandomInt(minTraitLevel, maxTraitLevel));
                 hero.HeroDeveloper.InitializeHeroDeveloper();
             }
+            foreach (SkillObject skill in Skills.All)
+            {
+                hero.SetSkillValue(skill, MBRandom.RandomInt(Settings.Current.MinimumSkillLevel, Settings.Current.MaximumSkillLevel));
+            }
             hero.SetNewOccupation(Occupation.Lord);
             MBEquipmentRoster roster = Campaign.Current.Models.EquipmentSelectionModel.GetEquipmentRostersForHeroComeOfAge(hero, false).GetRandomElementInefficiently();
             if (roster != null)

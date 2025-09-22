@@ -46,13 +46,10 @@ namespace ClanManager
         private int _maximumLeaderHeroAge = 50;
         private int _minimumHeroAge = 30;
         private int _maximumHeroAge = 50;
+        private int _minimumSkillLevel = 0;
+        private int _maximumSkillLevel = 175;
         private int _minimumPersonalityTraitLevel = -2;
         private int _maximumPersonalityTraitLevel = 2;
-        //private int _minimumCharacterLevel = 1;
-        //private int _maximumCharacterLevel = 10;
-        //private int _minimumSkillLevel = 0;
-        //private int _maximumSkillLevel = 330;
-        //private bool _earnsLevelUpPoints = true;
         private float _femaleChance = 0.51f;
         private int _startingGoldForLeader = 25;
         private int _extraStartingGoldPerHero = 5;
@@ -419,7 +416,37 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyInteger("{=aIna4f85}Minimum Personality Trait Level", -2, 2, HintText = "{=CgnkpKzm}Minimum level of default personality traits. Default is -2.", Order = 36, RequireRestart = false)]
+        [SettingPropertyInteger("{=7FRDfNUE}Minimum Skill Level", 0, 330, HintText = "{=FsmNMS4s}The minimum level for each skill. Cannot be higher than Maximum Skill Level. Default is 0.", Order = 36, RequireRestart = false)]
+        [SettingPropertyGroup(HeadingHeroProperties, GroupOrder = 30)]
+        public int MinimumSkillLevel
+        {
+            get => _minimumSkillLevel;
+            set
+            {
+                if (_minimumSkillLevel != value)
+                {
+                    _minimumSkillLevel = value;
+                    OnPropertyChanged(nameof(MinimumSkillLevel));
+                }
+            }
+        }
+
+        [SettingPropertyInteger("{=OJqCHHSN}Maximum Skill Level", 0, 330, HintText = "{=hk6gGhSy}The maximum level for each skill. Cannot be lower than Minimum Skill Level. Default is 175.", Order = 37, RequireRestart = false)]
+        [SettingPropertyGroup(HeadingHeroProperties, GroupOrder = 30)]
+        public int MaximumSkillLevel
+        {
+            get => _maximumSkillLevel;
+            set
+            {
+                if (_maximumSkillLevel != value)
+                {
+                    _maximumSkillLevel = value;
+                    OnPropertyChanged(nameof(MaximumSkillLevel));
+                }
+            }
+        }
+
+        [SettingPropertyInteger("{=aIna4f85}Minimum Personality Trait Level", -2, 2, HintText = "{=CgnkpKzm}Minimum level of default personality traits. Default is -2.", Order = 38, RequireRestart = false)]
         [SettingPropertyGroup(HeadingHeroProperties, GroupOrder = 30)]
         public int MinimumPersonalityTraitLevel
         {
@@ -434,7 +461,7 @@ namespace ClanManager
             }
         }
 
-        [SettingPropertyInteger("{=v73XjgH5}Maximum Personality Trait Level", -2, 2, HintText = "{=zauNoekp}Maximum level of default personality traits. Default is 2.", Order = 37, RequireRestart = false)]
+        [SettingPropertyInteger("{=v73XjgH5}Maximum Personality Trait Level", -2, 2, HintText = "{=zauNoekp}Maximum level of default personality traits. Default is 2.", Order = 39, RequireRestart = false)]
         [SettingPropertyGroup(HeadingHeroProperties, GroupOrder = 30)]
         public int MaximumPersonalityTraitLevel
         {
@@ -448,81 +475,6 @@ namespace ClanManager
                 }
             }
         }
-        /*
-        [SettingPropertyInteger("{=nfMFmDGwKf}Minimum Character Level", 1, 62, HintText = "Default is 5. -1 to always use destroyed clan tier.", Order = 38, RequireRestart = false)]
-        [SettingPropertyGroup("Hero Properties", GroupOrder = 30)]
-        public int MinimumCharacterLevel
-        {
-            get => _minimumCharacterLevel;
-            set
-            {
-                if (_minimumCharacterLevel != value)
-                {
-                    _minimumCharacterLevel = value;
-                    OnPropertyChanged(nameof(MinimumCharacterLevel));
-                }
-            }
-        }
-
-        [SettingPropertyInteger("{=nfMFmDGwKf}Maximum Character Level", 1, 62, HintText = "Default is 5. -1 to always use destroyed clan tier.", Order = 39, RequireRestart = false)]
-        [SettingPropertyGroup("Hero Properties", GroupOrder = 30)]
-        public int MaximumCharacterLevel
-        {
-            get => _maximumCharacterLevel;
-            set
-            {
-                if (_maximumCharacterLevel != value)
-                {
-                    _maximumCharacterLevel = value;
-                    OnPropertyChanged(nameof(MaximumCharacterLevel));
-                }
-            }
-        }
-
-        [SettingPropertyInteger("{=nfMFmDGwKf}Minimum Skill Level", 0, 330, HintText = "Default is 5. -1 to always use destroyed clan tier.", Order = 40, RequireRestart = false)]
-        [SettingPropertyGroup("Hero Properties", GroupOrder = 30)]
-        public int MinimumSkillLevel
-        {
-            get => _minimumSkillLevel;
-            set
-            {
-                if (_minimumSkillLevel != value)
-                {
-                    _minimumSkillLevel = value;
-                    OnPropertyChanged(nameof(MinimumSkillLevel));
-                }
-            }
-        }
-
-        [SettingPropertyInteger("{=nfMFmDGwKf}Maximum Skill Level", 0, 330, HintText = "Default is 5. -1 to always use destroyed clan tier.", Order = 41, RequireRestart = false)]
-        [SettingPropertyGroup("Hero Properties", GroupOrder = 30)]
-        public int MaximumSkillLevel
-        {
-            get => _maximumSkillLevel;
-            set
-            {
-                if (_maximumSkillLevel != value)
-                {
-                    _maximumSkillLevel = value;
-                    OnPropertyChanged(nameof(MaximumSkillLevel));
-                }
-            }
-        }
-
-        [SettingPropertyBool("{=nfMFmDGwKf}Earns Level Up Points", Order = 42, RequireRestart = false, HintText = "{=zTvbZ8Br}Enables a clan name change button in the encyclopedia. Default value is disabled.")]
-        [SettingPropertyGroup("Other Features", GroupOrder = 30)]
-        public bool EarnsLevelUpPoints
-        {
-            get => _earnsLevelUpPoints;
-            set
-            {
-                if (_earnsLevelUpPoints != value)
-                {
-                    _earnsLevelUpPoints = value;
-                    OnPropertyChanged(nameof(EarnsLevelUpPoints));
-                }
-            }
-        }*/
 
         [SettingPropertyFloatingInteger("{=UVjVMgsd}Female Chance", 0, 1, "#0%", Order = 43, RequireRestart = false, HintText = "{=HK0uGuNJ}Percentage chance of heroes being female. Affects the leader hero. Default is 51% female.")]
         [SettingPropertyGroup(HeadingHeroProperties, GroupOrder = 30)]
@@ -568,9 +520,6 @@ namespace ClanManager
                 }
             }
         }
-        public static Settings Current
-        {
-            get => Settings.Instance!;
-        }
+        public static Settings Current => Instance!;
     }
 }
