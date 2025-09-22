@@ -51,7 +51,6 @@ namespace ClanManager
             }
             if ((Settings.Current.DuplicateClanNames.SelectedIndex < 2 && Clan.All.Count((Clan x) => x.Name.ToString().ToLower() == name.ToString().ToLower() && (Settings.Current.DuplicateClanNames.SelectedIndex == 0 || !x.IsEliminated)) > 0))
             {
-
                 TextObject message = new TextObject("{=!!}Clan Manager Warning: Attempt to create new clan failed! Please add more names to ModuleData\\CultureClanNames.xml or set 'Duplicate Name Policy' MCM option to 'Eliminated Only' / 'All'.");
                 InformationManager.DisplayMessage(new InformationMessage(message.ToString(), Color.FromUint(0x00F16D26)));
                 SubModule.Log(message.ToString());

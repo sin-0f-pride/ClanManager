@@ -34,7 +34,7 @@ namespace ClanManager.GauntletUI
                 new Attribute("MarginTop", "-12")
             };
         }
-        [PrefabExtension("EncyclopediaClanPage", "descendant::RichTextWidget[@Text='@NameText']")]
+        [PrefabExtension("EncyclopediaClanPage", "descendant::TextWidget[@Text='@NameText']")]
         internal class EncyclopediaClanPageNameTextFormat : PrefabExtensionSetAttributePatch
         {
 

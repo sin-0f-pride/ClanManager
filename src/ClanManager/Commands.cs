@@ -32,7 +32,7 @@ namespace ClanManager
             if (!CampaignCheats.CheckParameters(strings, 0))
             {
                 clanName = CampaignCheats.ConcatenateString(strings.GetRange(0, strings.Count));
-                clan = CampaignCheats.GetClan(clanName);
+                clan = GetClan(clanName);
             }
             if (clan == null || clan.IsEliminated)
             {
@@ -58,7 +58,7 @@ namespace ClanManager
             {
                 return clanName + " does not have a valid settlement target. Report this to Clan Manager author on Nexus.\n";
             }
-            Hero hero = CreateHeroAction.ApplyInternal(character, settlement, clan, MBRandom.RandomInt(Settings.Current.MinimumHeroAge, Settings.Current.MaximumHeroAge));
+            Hero hero = CreateHeroAction.ApplyInternal(character, settlement, clan, culture, MBRandom.RandomInt(Settings.Current.MinimumHeroAge, Settings.Current.MaximumHeroAge));
             EnterSettlementAction.ApplyForCharacterOnly(hero, settlement);
             GiveGoldAction.ApplyBetweenCharacters(null, clan.Leader, (int)(Settings.Current.ExtraStartingGoldPerHero) * 1000, true);
             return string.Format("{0} is added to the {1} clan.", hero.Name, clan.Name);
@@ -76,13 +76,13 @@ namespace ClanManager
             {
                 return text;
             }
-            List<string> separatedNames = CampaignCheats.GetSeparatedNames(strings, "|");
+            List<string> separatedNames = CampaignCheats.GetSeparatedNames(strings);
             if (separatedNames.Count < 2)
             {
                 return text;
             }
             string clanName = separatedNames[0];
-            Clan clan = CampaignCheats.GetClan(clanName);
+            Clan clan = GetClan(clanName);
             if (clan == null || clan.IsEliminated)
             {
                 return clanName + " is not found.\n" + text;
@@ -120,7 +120,7 @@ namespace ClanManager
             {
                 ChangeKingdomAction.ApplyByLeaveKingdom(clan, true);
             }
-            ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom, true);
+            ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom, default, true);
             return string.Format("{0} has been moved to the {1} kingdom.", clan.Name, kingdom.Name);
         }
 
@@ -136,13 +136,13 @@ namespace ClanManager
             {
                 return text;
             }
-            List<string> separatedNames = CampaignCheats.GetSeparatedNames(strings, "|");
+            List<string> separatedNames = CampaignCheats.GetSeparatedNames(strings);
             if (separatedNames.Count < 2)
             {
                 return text;
             }
             string clanName = separatedNames[0];
-            Clan clan = CampaignCheats.GetClan(clanName);
+            Clan clan = GetClan(clanName);
             if (clan == null || clan.IsEliminated)
             {
                 return clanName + " is not found.\n" + text;
@@ -152,7 +152,7 @@ namespace ClanManager
                 return "Can not change leader of the player clan!";
             }
             string heroName = separatedNames[1];
-            Hero hero = CampaignCheats.GetHero(heroName);
+            Hero hero = GetHero(heroName);
             if (hero == null) {
                 return clanName + " is not found.\n" + text;
             }
@@ -176,13 +176,13 @@ namespace ClanManager
             {
                 return text;
             }
-            List<string> separatedNames = CampaignCheats.GetSeparatedNames(strings, "|");
+            List<string> separatedNames = CampaignCheats.GetSeparatedNames(strings);
             if (separatedNames.Count < 2)
             {
                 return text;
             }
             string heroName = separatedNames[0];
-            Hero hero = CampaignCheats.GetHero(heroName);
+            Hero hero = GetHero(heroName);
             if (hero == null || !hero.IsActive)
             {
                 return heroName + " is not found.\n" + text;
@@ -192,7 +192,7 @@ namespace ClanManager
                 return heroName + "'s clan can not be changed. Hero must be alive and not leading a clan.\n" + text;
             }
             string clanName = separatedNames[1];
-            Clan clan = CampaignCheats.GetClan(clanName);
+            Clan clan = GetClan(clanName);
             if (clan == null || clan.IsEliminated)
             {
                 return clanName + " is not found.\n" + text;
@@ -203,6 +203,36 @@ namespace ClanManager
             }
             hero.Clan = clan;
             return string.Format("{0} has been moved to the {1} clan.", hero.Name, clan.Name);
+        }
+
+        public static Clan GetClan(string clanName)
+        {
+            foreach (Clan clan in Clan.NonBanditFactions)
+            {
+                if (string.Equals(clan.Name.ToString(), clanName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return clan;
+                }
+            }
+            return null;
+        }
+        public static Hero GetHero(string heroName)
+        {
+            foreach (Hero hero in Hero.AllAliveHeroes)
+            {
+                if (string.Equals(hero.Name.ToString().Replace(" ", ""), heroName.Replace(" ", ""), StringComparison.OrdinalIgnoreCase))
+                {
+                    return hero;
+                }
+            }
+            foreach (Hero hero2 in Hero.DeadOrDisabledHeroes)
+            {
+                if (string.Equals(hero2.Name.ToString(), heroName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return hero2;
+                }
+            }
+            return null;
         }
     }
 }

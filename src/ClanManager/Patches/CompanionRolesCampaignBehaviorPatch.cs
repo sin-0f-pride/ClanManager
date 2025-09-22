@@ -6,6 +6,7 @@ using HarmonyLib;
 using System.Collections;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
 
 namespace ClanManager.Patches
 {
