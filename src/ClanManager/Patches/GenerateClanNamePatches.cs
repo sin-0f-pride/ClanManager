@@ -15,7 +15,7 @@ namespace ClanManager.Patches
     {
         public static void Postfix(CultureObject culture, ref TextObject __result)
         {
-            if (Settings.Current!.CustomClanNames.SelectedIndex == 0)
+            if (Settings.Current.CustomClanNames.SelectedIndex == 0)
             {
                 return;
             }

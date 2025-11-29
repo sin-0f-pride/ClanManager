@@ -13,6 +13,7 @@ using ClanManager.Actions;
 
 namespace ClanManager
 {
+    /*
     internal class Commands
     {
         [CommandLineFunctionality.CommandLineArgumentFunction("add_random_hero_to_clan", "clanmanager")]
@@ -204,5 +205,5 @@ namespace ClanManager
             hero.Clan = clan;
             return string.Format("{0} has been moved to the {1} clan.", hero.Name, clan.Name);
         }
-    }
+    }*/
 }

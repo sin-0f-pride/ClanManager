@@ -21,11 +21,14 @@ namespace ClanManager.Actions
             ByTurningToLord
         }
 
+
         private static void ApplyInternal(TextObject name, Clan oldClan, CultureObject culture, Hero leader, Settlement settlement, CreateClanDetail detail)
         {
             Clan clan = Clan.CreateClan("CC_" + Clan.All.Count);
-            clan.InitializeClan(name, name, culture, Banner.CreateRandomClanBanner(-1), settlement.GatePosition, false);
-            clan.UpdateHomeSettlement(settlement);
+            clan.ChangeClanName(name, name);
+            clan.Culture = culture;
+            clan.Banner = Banner.CreateRandomClanBanner(-1);
+            clan.SetInitialHomeSettlement(settlement);
             MBReadOnlyList<CharacterObject> templates = culture.LordTemplates;
             CharacterObject character = templates.GetRandomElementWithPredicate((CharacterObject x) => x.Occupation == Occupation.Lord);
             bool mercenary = false;
@@ -46,9 +49,7 @@ namespace ClanManager.Actions
                 {
                     return;
                 }
-                int minTraitLevel = Settings.Current.MinimumPersonalityTraitLevel;
-                int maxTraitLevel = Settings.Current.MaximumPersonalityTraitLevel;
-                leader = CreateHeroAction.ApplyInternal(character, settlement, clan, MBRandom.RandomInt(Settings.Current.MinimumLeaderHeroAge, Settings.Current.MaximumLeaderHeroAge));
+                leader = CreateHeroAction.ApplyInternal(character, settlement, clan, culture, MBRandom.RandomInt(Settings.Current.MinimumLeaderHeroAge, Settings.Current.MaximumLeaderHeroAge));
             }
             clan.SetLeader(leader);
             int minimumTier = Settings.Current.MinimumClanTier;
@@ -72,7 +73,7 @@ namespace ClanManager.Actions
             int j = MBRandom.RandomInt(Settings.Current.MinimumHeroesSpawned, Settings.Current.MaximumHeroesSpawned);
             for (int i = 0; i < j; i++)
             {
-                Hero hero = CreateHeroAction.ApplyInternal(character, settlement, clan, MBRandom.RandomInt(Settings.Current.MinimumHeroAge, Settings.Current.MaximumHeroAge));
+                Hero hero = CreateHeroAction.ApplyInternal(character, settlement, clan, culture, MBRandom.RandomInt(Settings.Current.MinimumHeroAge, Settings.Current.MaximumHeroAge));
                 EnterSettlementAction.ApplyForCharacterOnly(hero, settlement);
                 GiveGoldAction.ApplyBetweenCharacters(null, leader, Settings.Current.ExtraStartingGoldPerHero * 1000, true);
             }
@@ -105,14 +106,14 @@ namespace ClanManager.Actions
                     {
                         break;
                     }
-                    Vec2 position = detail == CreateClanDetail.ByCreateAutonomously ? settlement.GatePosition : MobileParty.MainParty.Position2D;
+                    CampaignVec2 position = detail == CreateClanDetail.ByCreateAutonomously ? settlement.GatePosition : MobileParty.MainParty.Position;
                     float radius = detail == CreateClanDetail.ByCreateAutonomously ? 150f : 3f;
                     MobileParty party = LordPartyComponent.CreateLordParty("CC_" + MobileParty.All.Count, strongest, position, radius, settlement, strongest);
                     CharacterObject basicTroop = selectedIndex == 1 || (selectedIndex == 2 && MBRandom.RandomInt(1) == 0) ? culture.BasicTroop : culture.EliteBasicTroop;
-                    party.AddElementToMemberRoster(basicTroop, party.LimitedPartySize - party.MemberRoster.Count);
+                    party.AddElementToMemberRoster(basicTroop, party.Party.PartySizeLimit - party.Party.NumberOfAllMembers);
                     if (party.MemberRoster.Count < 1)
                     {
-                        party.RemoveParty();
+                        DestroyPartyAction.ApplyForDisbanding(party, settlement);
                     }
                 }
             }
@@ -163,7 +164,7 @@ namespace ClanManager.Actions
                 ChangeKingdomAction.ApplyByJoinToKingdom(clan, Clan.PlayerClan.Kingdom);
                 GainKingdomInfluenceAction.ApplyForDefault(Hero.MainHero, -1000f);
                 ChangeRelationAction.ApplyPlayerRelation(leader, 50, true, true);
-                CampaignEventDispatcher.Instance.OnCompanionClanCreated(clan);
+                CampaignEventDispatcher.Instance.OnClanCreated(clan, true);
             }
         }
 

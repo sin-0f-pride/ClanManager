@@ -1,11 +1,9 @@
-﻿using SandBox.CampaignBehaviors;
+﻿using System.Collections.Generic;
+
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.Localization;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
 
 using HarmonyLib;
-using System.Collections;
-using System.Collections.Generic;
-using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
 
 namespace ClanManager.Patches
 {
