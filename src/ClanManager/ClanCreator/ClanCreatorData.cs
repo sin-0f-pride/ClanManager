@@ -14,7 +14,6 @@ namespace ClanManager
 
         internal ClanCreatorData()
         {
-            LastTickTime = CampaignTime.Now;
             LastTickType = 1;
         }
 
