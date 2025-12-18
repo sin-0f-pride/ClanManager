@@ -30,7 +30,7 @@ namespace ClanManager
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
-            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=e3pC77k9}Clan Creator loaded").ToString()));
+            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=e3pC77k9}Clan Manager loaded").ToString()));
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
@@ -52,7 +52,7 @@ namespace ClanManager
             {
                 Directory.CreateDirectory(text);
             }
-            string path = Path.Combine(text, "ClanCreation.txt");
+            string path = Path.Combine(text, "ClanManager.txt");
             using (StreamWriter streamWriter = new StreamWriter(path, true))
             {
                 streamWriter.WriteLine("[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "] " + message);

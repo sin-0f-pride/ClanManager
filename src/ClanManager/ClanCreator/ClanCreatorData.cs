@@ -23,15 +23,16 @@ namespace ClanManager
             int type = Settings.Current.SpawnIntervalType.SelectedIndex;
             if (LastTickType == type)
             {
-                if (type == 0 && LastTickTime.ElapsedHoursUntilNow >= Settings.Current.SpawnInterval)
+                int interval = Settings.Current.SpawnInterval;
+                if (type == 0 && LastTickTime.ElapsedHoursUntilNow >= interval)
                 {
                     result = true;
                 }
-                else if (type == 1 && LastTickTime.ElapsedDaysUntilNow >= Settings.Current.SpawnInterval)
+                else if (type == 1 && LastTickTime.ElapsedDaysUntilNow >= interval)
                 {
                     result = true;
                 }
-                else if (type == 2 && LastTickTime.ElapsedWeeksUntilNow >= Settings.Current.SpawnInterval)
+                else if (type == 2 && LastTickTime.ElapsedWeeksUntilNow >= interval)
                 {
                     result = true;
                 }
