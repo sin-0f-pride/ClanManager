@@ -50,7 +50,7 @@ namespace ClanManager
         }
         private static bool companion_create_clan_confirm_clickable_on_condition(out TextObject explanation)
         {
-            explanation = TextObject.Empty;
+            explanation = TextObject.GetEmpty();
             MBTextManager.SetTextVariable("CULTURE_SPECIFIC_TITLE", HeroHelper.GetTitleInIndefiniteCase(Hero.OneToOneConversationHero), false);
             bool hasRequiredInfluence = Hero.MainHero.Clan.Influence >= 1000f;
             MBTextManager.SetTextVariable("NEEDED_INFLUENCE_TO_GRANT_TITLE", 1000);

@@ -39,9 +39,9 @@ namespace ClanManager.GauntletUI
 
             _onRefresh = onRefresh;
 
-            UIResourceManager.SpriteData.SpriteCategories["ui_clan"].Load(UIResourceManager.ResourceContext, UIResourceManager.UIResourceDepot);
+            UIResourceManager.SpriteData.SpriteCategories["ui_clan"].Load(UIResourceManager.ResourceContext, UIResourceManager.ResourceDepot);
 
-            _layer = new GauntletLayer(211);
+            _layer = new GauntletLayer("ChangeNameEncyclopediaClanPage", 211);
             _layer.InputRestrictions.SetInputRestrictions();
             _layer.IsFocusLayer = true;
             ScreenManager.TrySetFocus(_layer);
