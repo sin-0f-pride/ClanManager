@@ -19,7 +19,7 @@ namespace ClanManager
 
         protected override void OnSubModuleLoad()
         {
-            var extender = new UIExtender("ClanManager");
+            var extender = UIExtender.Create("ClanManager");
             extender.Register(typeof(SubModule).Assembly);
             extender.Enable();
 
@@ -36,8 +36,7 @@ namespace ClanManager
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
             base.OnGameStart(game, gameStarterObject);
-            Campaign campaign = game.GameType as Campaign;
-            if (campaign != null)
+            if (game.GameType is Campaign)
             {
                 CampaignGameStarter starter = (CampaignGameStarter)gameStarterObject;
                 starter.AddBehavior(new ClanCreationBehavior());
