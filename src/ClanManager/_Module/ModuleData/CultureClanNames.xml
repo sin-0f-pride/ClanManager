@@ -101,6 +101,15 @@
 			<name name="Rostisloving" />
 			<name name="Volodimeroving" />
 			<name name="Yuroving" />
+			<name name="Waegmunding" />
+			<name name="Wylfing" />
+			<name name="Yngling" />
+			<name name="Scylfing" />
+			<name name="Skjoldung" />
+			<name name="Scylding" />
+			<name name="Wuffing" />
+			<name name="Tyrving" />
+			<name name="Ylfing" />
 		</names>
 		<words>
 		</words>
@@ -195,6 +204,29 @@
 			<name name="Uygun" />
 			<name name="Yakut" />
 			<name name="Yigit" />
+		</names>
+		<words>
+		</words>
+	</Culture>
+	<Culture id="nord">
+		<names>
+			<name name="Anjoving" />
+			<name name="Izyasloving" />
+			<name name="Olgoving" />
+			<name name="Sviatosloving" />
+			<name name="Piatoving" />
+			<name name="Rostisloving" />
+			<name name="Volodimeroving" />
+			<name name="Yuroving" />
+			<name name="Waegmunding" />
+			<name name="Wylfing" />
+			<name name="Yngling" />
+			<name name="Scylfing" />
+			<name name="Skjoldung" />
+			<name name="Scylding" />
+			<name name="Wuffing" />
+			<name name="Tyrving" />
+			<name name="Ylfing" />
 		</names>
 		<words>
 		</words>
