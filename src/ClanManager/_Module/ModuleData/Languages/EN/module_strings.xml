@@ -33,8 +33,13 @@
 	  <string id="rm5EC51X" text="On destruction: Preserves the destroyed clan culture. On interval: Preserves the culture with the least clans. May pick a different culture on each iteration if 'Number Of Clans' is more than 1. Default is Enabled." />
 	  <string id="7byinotg" text="Preserve Kingdoms" />
 	  <string id="F1qY6mJh" text="On destruction: Preserves the destroyed clan kingdom, or the kingdom with the least clans if one isn't found for the clan. Won't preserve kingdom of a mercenary clan. On interval: Preserves the kingdom with the least clans. Default is Disabled." />
+	  <string id="MvD2Gsk1" text="Preserve Player Kingdom Policy" />
+	  <string id="fkWWXIOx" text="Decides whether spawned clans should join the Player-owned Kingdom or not. Sometimes: Normal mod logic. Always: Spawned clans always try to join the Player-owned Kingdom. Never: Spawned clans never try to join the Player-owned Kingdom. Requires 'Preserve Kingdoms'. Default is Sometimes." />
+	  <string id="GFDHzpzS" text="Sometimes" />
+	  <string id="rzmlyjLN" text="Always" />
+	  <string id="DSYL70rt" text="Never" />
 	  <string id="QSU99UWV" text="Preserve Player Kingdom Inquiry" />
-	  <string id="wQqa4vfR" text="Displays an inquiry whenever the player kingdom is chosen to be preserved to allow the choice of refusing a newly created clan. Requires 'Preserve Kingdoms' to be enabled or it does nothing. Default is Disabled." />
+	  <string id="wQqa4vfR" text="Displays an inquiry whenever the Player-owned kingdom is chosen to be preserved to allow the choice of refusing a newly created clan. Requires 'Preserve Kingdoms'. Default is Disabled." />
 	  <string id="rXnBaoFZ" text="Minimum Clan Tier" />
 	  <string id="0kjLx3pT" text="The minimum tier a spawned clan can have. Does nothing on destruction if 'Preserve Clan Tier' is enabled. Default is 0." />
 	  <string id="iX5NyGT7" text="Maximum Clan Tier" />
