@@ -36,13 +36,14 @@ namespace ClanManager.Patches
     {
         public static void Postfix(CultureObject clanCulture, ref TextObject[] __result)
         {
-            if (Settings.Current!.CustomClanNames.SelectedIndex == 0)
+            int index = Settings.Current!.CustomClanNames.SelectedIndex;
+            if (index == 0)
             {
                 return;
             }
             if (ClanCreationBehavior.Names.TryGetValue(clanCulture, out List<TextObject> namesList) && !namesList.IsEmpty())
             {
-                if (Settings.Current!.CustomClanNames.SelectedIndex == 1 && !__result.IsEmpty())
+                if (index == 1 && !__result.IsEmpty())
                 {
                     __result = __result.AddRangeToArray(namesList.ToArray());
                 }
