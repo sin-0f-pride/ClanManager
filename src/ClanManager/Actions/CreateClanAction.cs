@@ -54,7 +54,7 @@ namespace ClanManager.Actions
             clan.SetLeader(leader);
             int minimumTier = Settings.Current.MinimumClanTier;
             int maximumTier = Settings.Current.MaximumClanTier;
-            int tier = minimumTier <= maximumTier ? MBRandom.RandomInt(minimumTier, maximumTier) : MBRandom.RandomInt(maximumTier, minimumTier);
+            int tier = oldClan != null && Settings.Current.PreserveClanTier ? oldClan.Tier : minimumTier <= maximumTier ? MBRandom.RandomInt(minimumTier, maximumTier) : MBRandom.RandomInt(maximumTier, minimumTier);
             int[] TierLowerRenown = new int[] { 0, 50, 150, 350, 900, 2350, 6150 };
             clan.AddRenown(TierLowerRenown[tier]);
             clan.Renown = Campaign.Current.Models.ClanTierModel.CalculateInitialRenown(clan);
@@ -78,8 +78,8 @@ namespace ClanManager.Actions
                 GiveGoldAction.ApplyBetweenCharacters(null, leader, Settings.Current.ExtraStartingGoldPerHero * 1000, true);
             }
             //Decides whether troops should be added based on the setting, then creates a single party for the clan and populates it with culture troops until the clan strength is met or close to being met without going over.
-            int selectedIndex = Settings.Current.FillClanParties.SelectedIndex;
-            if (selectedIndex != 0)
+            int fillClanParties = Settings.Current.FillClanParties.SelectedIndex;
+            if (fillClanParties != 0)
             {
                 for (int parties = 0; parties < clan.CommanderLimit; parties++)
                 {
@@ -109,7 +109,7 @@ namespace ClanManager.Actions
                     CampaignVec2 position = detail == CreateClanDetail.ByCreateAutonomously ? settlement.GatePosition : MobileParty.MainParty.Position;
                     float radius = detail == CreateClanDetail.ByCreateAutonomously ? 150f : 3f;
                     MobileParty party = LordPartyComponent.CreateLordParty("CC_" + MobileParty.All.Count, strongest, position, radius, settlement, strongest);
-                    CharacterObject basicTroop = selectedIndex == 1 || (selectedIndex == 2 && MBRandom.RandomInt(1) == 0) ? culture.BasicTroop : culture.EliteBasicTroop;
+                    CharacterObject basicTroop = fillClanParties == 1 || (fillClanParties == 2 && MBRandom.RandomInt(1) == 0) ? culture.BasicTroop : culture.EliteBasicTroop;
                     party.AddElementToMemberRoster(basicTroop, party.Party.PartySizeLimit - party.Party.NumberOfAllMembers);
                     if (party.MemberRoster.Count < 1)
                     {
@@ -123,7 +123,8 @@ namespace ClanManager.Actions
                 if (Settings.Current.PreserveKingdoms && !mercenary)
                 {
                     // Preserve old clan kingdom. If it's null, preserve the kingdom with the least active clans. If the kingdom is owned by the player, give them the option. If the player refuses, move to next kingdom.
-                    IEnumerable<Kingdom> kingdoms = from k in Kingdom.All where !k.IsEliminated orderby (from j in k.Clans where !j.IsEliminated select j).Count() ascending select k;
+                    int preservePlayerKingdomPolicy = Settings.Current.PreservePlayerKingdomPolicy.SelectedIndex;
+                    IEnumerable<Kingdom> kingdoms = from k in Kingdom.All where !k.IsEliminated && (preservePlayerKingdomPolicy == 0 || (preservePlayerKingdomPolicy == 1 && k.Leader == Hero.MainHero) || (preservePlayerKingdomPolicy == 2 && k.Leader != Hero.MainHero)) orderby (from j in k.Clans where !j.IsEliminated select j).Count() ascending select k;
                     // TODO fix, poor implementation
                     Kingdom kingdom = oldClan != null && oldClan.Kingdom != null ? oldClan.Kingdom : kingdoms.ElementAtOrDefault(0);
                     if (kingdom != null)
@@ -131,12 +132,7 @@ namespace ClanManager.Actions
                         if (Settings.Current.PreservePlayerKingdomInquiry && kingdom.Leader == Hero.MainHero)
                         {
                             InformationManager.ShowInquiry(
-                                new InquiryData(
-                                    new TextObject("{=XnI75682}A new clan emerged.").ToString(),
-                                    new TextObject("{=sFGXUicT}A rising new clan, {CLAN_NAME}, has been spotted nearby and would like to serve our kingdom. Do you accept them?").SetTextVariable("CLAN_NAME", clan.Name).ToString(),
-                                    true, true,
-                                    new TextObject("{=ZdqbU2gw}Accept").ToString(),
-                                    new TextObject("{=D9WJXQ9Z}Reject").ToString(),
+                                new InquiryData(new TextObject("{=XnI75682}A new clan emerged.").ToString(), new TextObject("{=sFGXUicT}A rising new clan, {CLAN_NAME}, has been spotted nearby and would like to serve our kingdom. Do you accept them?").SetTextVariable("CLAN_NAME", clan.Name).ToString(), true, true, new TextObject("{=ZdqbU2gw}Accept").ToString(), new TextObject("{=D9WJXQ9Z}Reject").ToString(),
                                     () =>
                                     {
                                         ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom);
@@ -165,6 +161,60 @@ namespace ClanManager.Actions
                 GainKingdomInfluenceAction.ApplyForDefault(Hero.MainHero, -1000f);
                 ChangeRelationAction.ApplyPlayerRelation(leader, 50, true, true);
                 CampaignEventDispatcher.Instance.OnClanCreated(clan, true);
+            }
+            if (clan.Kingdom == null)
+            {
+                int declareWarsOnSpawn = Settings.Current.DeclareWarsOnSpawn.SelectedIndex;
+                if (declareWarsOnSpawn == 1)
+                {
+                    foreach (Kingdom kingdom in Kingdom.All)
+                    {
+                        if (!kingdom.IsEliminated && !clan.GetStanceWith(kingdom).IsAtWar)
+                        {
+                            DeclareWarAction.ApplyByDefault(clan, kingdom);
+                        }
+                    }
+                }
+                else if (declareWarsOnSpawn == 2)
+                {
+                    foreach (Kingdom kingdom in Kingdom.All)
+                    {
+                        if (!kingdom.IsEliminated && (Clan.PlayerClan.Kingdom == null || Clan.PlayerClan.Kingdom != kingdom) && !clan.GetStanceWith(kingdom).IsAtWar)
+                        {
+                            DeclareWarAction.ApplyByDefault(clan, kingdom);
+                        }
+                    }
+                }
+                else if (declareWarsOnSpawn == 3)
+                {
+                    foreach (Kingdom kingdom in Kingdom.All)
+                    {
+                        if (!kingdom.IsEliminated && Clan.PlayerClan.Kingdom != null && Clan.PlayerClan.Kingdom == kingdom && !clan.GetStanceWith(kingdom).IsAtWar)
+                        {
+                            DeclareWarAction.ApplyByDefault(clan, kingdom);
+                        }
+                    }
+                }
+                else if (declareWarsOnSpawn == 4)
+                {
+                    foreach (Kingdom kingdom in Kingdom.All)
+                    {
+                        if (!kingdom.IsEliminated && clan.Culture != kingdom.Culture && !clan.GetStanceWith(kingdom).IsAtWar)
+                        {
+                            DeclareWarAction.ApplyByDefault(clan, kingdom);
+                        }
+                    }
+                }
+                else if (declareWarsOnSpawn == 5)
+                {
+                    foreach (Kingdom kingdom in Kingdom.All)
+                    {
+                        if (!kingdom.IsEliminated && clan.Culture == kingdom.Culture && !clan.GetStanceWith(kingdom).IsAtWar)
+                        {
+                            DeclareWarAction.ApplyByDefault(clan, kingdom);
+                        }
+                    }
+                }
             }
         }
 

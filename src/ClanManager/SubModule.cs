@@ -19,7 +19,7 @@ namespace ClanManager
 
         protected override void OnSubModuleLoad()
         {
-            var extender = new UIExtender("ClanManager");
+            var extender = UIExtender.Create("ClanManager");
             extender.Register(typeof(SubModule).Assembly);
             extender.Enable();
 
@@ -30,14 +30,13 @@ namespace ClanManager
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
-            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=e3pC77k9}Clan Creator loaded").ToString()));
+            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=e3pC77k9}Clan Manager loaded").ToString()));
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
             base.OnGameStart(game, gameStarterObject);
-            Campaign campaign = game.GameType as Campaign;
-            if (campaign != null)
+            if (game.GameType is Campaign)
             {
                 CampaignGameStarter starter = (CampaignGameStarter)gameStarterObject;
                 starter.AddBehavior(new ClanCreationBehavior());
@@ -52,7 +51,7 @@ namespace ClanManager
             {
                 Directory.CreateDirectory(text);
             }
-            string path = Path.Combine(text, "ClanCreation.txt");
+            string path = Path.Combine(text, "ClanManager.txt");
             using (StreamWriter streamWriter = new StreamWriter(path, true))
             {
                 streamWriter.WriteLine("[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "] " + message);

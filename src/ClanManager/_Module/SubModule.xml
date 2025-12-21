@@ -2,11 +2,13 @@
 <Module>
     <Name value="Clan Manager"/>
     <Id value="ClanManager"/>
-    <Version value="v1.0.4.1"/>
+    <Version value="v1.0.5"/>
 	<Official value="false" />
     <SingleplayerModule value="true"/>
     <MultiplayerModule value="false"/>
     <DependedModules>
+		<DependedModule Id="Bannerlord.Harmony"/>
+		<DependedModule Id="Bannerlord.UIExtenderEx"/>
         <DependedModule Id="Native"/>
         <DependedModule Id="SandBoxCore" />
         <DependedModule Id="Sandbox" />
