@@ -44,13 +44,12 @@ namespace ClanManager.Behaviors
         //Create new clan with the mod settings whenever the interval is passed 
         private void OnHourlyTick()
         {
-            if (!Settings.Current!.EnableSpawnOnInterval) return;
-            if (_clanCreatorData.HasExceededCooldown())
+            if (!Settings.Current!.EnableSpawnOnInterval || !_clanCreatorData.HasExceededCooldown()) {
+                return;
+            }
+            for (int n = 0; n < Settings.Current.NumberOfClansOnInterval; n++)
             {
-                for (int n = 0; n < Settings.Current.NumberOfClansOnInterval; n++)
-                {
-                    ClanCreator.CreateClan();
-                }
+                ClanCreator.CreateClan();
             }
         }
 
