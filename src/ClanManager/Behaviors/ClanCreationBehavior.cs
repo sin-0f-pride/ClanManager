@@ -31,7 +31,10 @@ namespace ClanManager.Behaviors
         //Create new clan with the mod settings whenever a clan is destroyed 
         private void OnClanDestroyed(Clan c)
         {
-            if (c == null || !Settings.Current.EnableSpawnOnDestruction || !Settings.Current.MinorClansOnDestruction && (c.IsMinorFaction || c.IsClanTypeMercenary || c.Tier == 0)) return;
+            if (c == null || !Settings.Current.EnableSpawnOnDestruction || (!Settings.Current.MinorClansOnDestruction && c.IsMinorFaction))
+            {
+                return;
+            }
             for (int n = 0; n < Settings.Current.NumberOfClansOnDestruction; n++)
             {
                 ClanCreator.CreateClan(c);
