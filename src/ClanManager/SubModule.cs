@@ -30,7 +30,7 @@ namespace ClanManager
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
-            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=e3pC77k9}Clan Manager loaded").ToString()));
+            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=e3pC77k9}Clan Manager loaded").ToString(), Color.FromUint(0x00E67E22)));
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
