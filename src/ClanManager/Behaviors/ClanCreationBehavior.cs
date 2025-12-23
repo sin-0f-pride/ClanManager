@@ -29,15 +29,15 @@ namespace ClanManager.Behaviors
         }
 
         //Create new clan with the mod settings whenever a clan is destroyed 
-        private void OnClanDestroyed(Clan c)
+        private void OnClanDestroyed(Clan clan)
         {
-            if (c == null || !Settings.Current.EnableSpawnOnDestruction || (!Settings.Current.MinorClansOnDestruction && c.IsMinorFaction))
+            if (clan == null || clan.IsBanditFaction || clan.IsRebelClan || !Settings.Current.EnableSpawnOnDestruction || (!Settings.Current.MinorClansOnDestruction && clan.IsMinorFaction))
             {
                 return;
             }
             for (int n = 0; n < Settings.Current.NumberOfClansOnDestruction; n++)
             {
-                ClanCreator.CreateClan(c);
+                ClanCreator.CreateClan(clan);
             }
         }
 
