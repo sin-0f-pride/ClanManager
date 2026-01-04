@@ -1,5 +1,4 @@
-﻿using TaleWorlds.CampaignSystem;
-using TaleWorlds.Localization;
+﻿using TaleWorlds.Localization;
 
 using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
