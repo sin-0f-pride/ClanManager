@@ -81,7 +81,7 @@ namespace ClanManager.Actions
             int fillClanParties = Settings.Current.FillClanParties.SelectedIndex;
             if (fillClanParties != 0)
             {
-                for (int parties = 0; parties < clan.CommanderLimit; parties++)
+                for (int parties = 0; parties < clan.WarPartyLimit; parties++)
                 {
                     Hero strongest = null!;
                     int strongestSum = 0;
